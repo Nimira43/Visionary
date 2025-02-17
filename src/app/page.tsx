@@ -29,6 +29,7 @@ function HomePage() {
               {item.title}
             </span>
           ))}
+          <Button className='font-light uppercase'>Login</Button>
         </div>
       </div>
    </div>
