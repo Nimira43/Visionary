@@ -34,7 +34,7 @@ function HomePage() {
       </div>
       <div className='grid grid-cols-2 gap-10 mt-20'>
         <div>
-          <h1 className='text-5xl font-bold text-primary-medium logo '>Visualise Your Future</h1>
+          <h1 className='text-5xl text-primary-medium logo '>Visualise Your Future</h1>
           <p className='text-grey-dark font-light'>Unlock your potential with our cutting-edge portfolio builder. Showcase your skills, achievements, and projects in a visually stunning and professional manner. Take control of your career and make your mark with ease. Visualise Your Future today.</p>
         </div>
       </div>
