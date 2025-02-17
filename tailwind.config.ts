@@ -14,15 +14,15 @@ export default {
   				DEFAULT: 'hsl(var(--primary))',
   				foreground: 'hsl(var(--primary-foreground))'
   			},
-				'primary-dark': 'ff4500',
-  			'primary-light': '#f28c66',
+				'primary-dark': '#87ceeb',
+  			'primary-light': '#b3e1f8',
   			secondary: {
   				DEFAULT: 'hsl(var(--secondary))',
   				foreground: 'hsl(var(--secondary-foreground))'
   			},
-  			'secondary-dark': '#87ceeb',
-				'secondary-light': '#fafcfd',
-  			'light': '#fffcfa',
+  			'secondary-dark': '#ff4500',
+				'secondary-light': '#f28c66',
+  			'light': '#fcfeff',
   			'dark': '#111',
   			'grey-extra-light': '#eee',
   			'grey-light': '#ccc',

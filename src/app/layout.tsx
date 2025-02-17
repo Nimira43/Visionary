@@ -10,7 +10,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: 'Visionary',
-  description: 'Portfolio builing app using Next JS 15, TypeScript, Tailwind and Shadcn',
+  description: 'Portfolio builing app using Next JS 15, Clerk, TypeScript, Tailwind and Shadcn',
 }
 
 export default function RootLayout({
