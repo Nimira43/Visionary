@@ -17,6 +17,11 @@ body {
   font-family: 'Carattere', serif;
 }
 
+.hero-image {
+  width: 50%;
+  height: auto;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

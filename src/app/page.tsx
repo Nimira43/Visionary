@@ -32,15 +32,19 @@ function HomePage() {
           <Button className='font-light uppercase'>Login</Button>
         </div>
       </div>
-      <div className='grid grid-cols-2 gap-10 mt-20 h-[70vh] px-20'>
+      <div className='grid grid-cols-2 gap-10 mt-20 h-[70vh] px-20 items-center'>
         <div className='flex flex-col justify-center'>
-          <h1 className='text-4xl text-primary-medium logo '>Visualise Your Future</h1>
+          <h1 className='text-4xl text-primary-medium logo pb-5'>Visualise Your Future</h1>
           <p className='text-grey-dark font-light'>Unlock your potential with our cutting-edge portfolio builder. Showcase your skills, achievements, and projects in a visually stunning and professional manner. Take control of your career and make your mark with ease. Visualise Your Future today.</p>
+        </div>
+        <div className='flex justify-center'>
+          <img src='/images/hero.png' alt='Hero image' />
         </div>
       </div>
     </div>
-  )  
+  )
 }
 
 export default HomePage
+
 
