@@ -2,8 +2,7 @@
 import React from 'react'
 import { Button } from '@/components/ui/button'
 
-function HomePage() {
-  const menuItems = [
+const menuItems = [
     {
       title: 'Home',
       path: '/'
@@ -18,6 +17,7 @@ function HomePage() {
     },
   ]
 
+function HomePage() {
   return (
     <div className='flex flex-col min-h-screen'>
       <div className='flex justify-between items-center bg-primary-light px-20 py-5'>
