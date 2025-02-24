@@ -64,10 +64,15 @@ function HomePage() {
             <SheetHeader>
               <SheetTitle></SheetTitle>
             </SheetHeader>
-            <SignUp
-              routing='hash'
-              signInUrl='/?formType=sign-in'
-            />
+
+            {searchParams.formType == 'sign-in' ? (
+              <SignIn />
+            ) : (
+              <SignUp
+                routing='hash'
+                signInUrl='/?formType=sign-in'
+              />
+            )}
           </SheetContent>
         </Sheet>
       )}
