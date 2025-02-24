@@ -1,6 +1,6 @@
 'use client'
 import { Button } from '@/components/ui/button'
-import { Sheet, SheetTrigger } from '@/components/ui/sheet'
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet'
 import { useState } from 'react'
 
 const menuItems = [
@@ -53,9 +53,11 @@ function HomePage() {
       </div>
       {openSheet && (
         <Sheet>
-          <SheetTrigger asChild>
-            <Button variant='outline'>Open</Button>
-          </SheetTrigger>
+          <SheetContent>
+            <SheetHeader>
+              <SheetTitle>Edit Profile</SheetTitle>
+            </SheetHeader>
+          </SheetContent>
         </Sheet>
       )}
     </div>
