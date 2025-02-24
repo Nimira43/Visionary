@@ -1,5 +1,6 @@
 'use client'
 import { Button } from '@/components/ui/button'
+import { Sheet, SheetTrigger } from '@/components/ui/sheet'
 import { useState } from 'react'
 
 const menuItems = [
@@ -50,6 +51,13 @@ function HomePage() {
           <img src='/images/hero.png' alt='Hero image' />
         </div>
       </div>
+      {openSheet && (
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button variant='outline'>Open</Button>
+          </SheetTrigger>
+        </Sheet>
+      )}
     </div>
   )
 }
