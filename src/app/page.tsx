@@ -51,8 +51,12 @@ function HomePage() {
           <img src='/images/hero.png' alt='Hero image' />
         </div>
       </div>
+
       {openSheet && (
-        <Sheet>
+        <Sheet
+          open={openSheet}
+          onOpenChange={setOpenSheet}
+        >
           <SheetContent>
             <SheetHeader>
               <SheetTitle>Edit Profile</SheetTitle>
