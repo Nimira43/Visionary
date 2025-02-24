@@ -2,6 +2,7 @@
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet'
 import { SignUp } from '@clerk/nextjs'
+import { useSearchParams } from 'next/navigation'
 import { useState } from 'react'
 
 const menuItems = [
@@ -21,6 +22,7 @@ const menuItems = [
 
 function HomePage() {
   const [openSheet, setOpenSheet] = useState(false)
+  const searchParams = useSearchParams()
 
   return (
     <div className='flex flex-col min-h-screen'>
