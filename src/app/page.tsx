@@ -59,9 +59,8 @@ function HomePage() {
         >
           <SheetContent>
             <SheetHeader>
-              <SheetTitle>Edit Profile</SheetTitle>
+              <SheetTitle></SheetTitle>
               <SheetDescription>
-                Update your profile using the fields below.
               </SheetDescription>
             </SheetHeader>
           </SheetContent>
