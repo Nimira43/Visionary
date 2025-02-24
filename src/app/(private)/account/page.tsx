@@ -1,3 +1,4 @@
+import SignOutButton from '@/components/functional/sign-out-button'
 import { UserButton } from '@clerk/nextjs'
 import { currentUser } from '@clerk/nextjs/server'
 
@@ -13,6 +14,7 @@ async function AccountPage() {
       <h2>Last Name: {loggedInUser?.lastName}</h2>
       <h2>Email: {loggedInUser?.emailAddresses[0].emailAddress}</h2>
       <UserButton />
+      <SignOutButton />
     </div>
   )
 }
