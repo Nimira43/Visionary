@@ -1,6 +1,7 @@
 'use client'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet'
+import { SignUp } from '@clerk/nextjs'
 import { useState } from 'react'
 
 const menuItems = [
