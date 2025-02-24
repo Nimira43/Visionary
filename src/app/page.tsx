@@ -62,6 +62,7 @@ function HomePage() {
             <SheetHeader>
               <SheetTitle></SheetTitle>
             </SheetHeader>
+            <SignUp />
           </SheetContent>
         </Sheet>
       )}
