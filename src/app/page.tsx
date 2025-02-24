@@ -1,6 +1,6 @@
 'use client'
 import { Button } from '@/components/ui/button'
-import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet'
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from '@/components/ui/sheet'
 import { useState } from 'react'
 
 const menuItems = [
@@ -56,6 +56,9 @@ function HomePage() {
           <SheetContent>
             <SheetHeader>
               <SheetTitle>Edit Profile</SheetTitle>
+              <SheetDescription>
+                Update your profile using the fields below.
+              </SheetDescription>
             </SheetHeader>
           </SheetContent>
         </Sheet>
