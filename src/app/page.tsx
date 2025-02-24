@@ -62,7 +62,9 @@ function HomePage() {
             <SheetHeader>
               <SheetTitle></SheetTitle>
             </SheetHeader>
-            <SignUp />
+            <SignUp
+              routing='hash'
+            />
           </SheetContent>
         </Sheet>
       )}
