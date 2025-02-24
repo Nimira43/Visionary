@@ -23,6 +23,7 @@ const menuItems = [
 function HomePage() {
   const [openSheet, setOpenSheet] = useState(false)
   const searchParams = useSearchParams()
+  const formType = searchParams.get('formType')
 
   return (
     <div className='flex flex-col min-h-screen'>
@@ -60,13 +61,17 @@ function HomePage() {
           open={openSheet}
           onOpenChange={setOpenSheet}
         >
-          <SheetContent className='min-w-[500px] flex justify-center items-center bg-primary-light'>
+          <SheetContent className='min-w-[500px] flex justify-center items-center '>
             <SheetHeader>
               <SheetTitle></SheetTitle>
             </SheetHeader>
 
-            {searchParams.formType == 'sign-in' ? (
-              <SignIn />
+            {formType === 'sign-in' ? (
+              <SignIn
+                routing='hash'
+                signUpUrl='/?formType=sign-up'
+                fallbackRedirectUrl='/account'
+              />
             ) : (
               <SignUp
                 routing='hash'
