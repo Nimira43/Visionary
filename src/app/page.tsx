@@ -33,7 +33,12 @@ function HomePage() {
               {item.title}
             </span>
           ))}
-          <Button className='font-light uppercase'>Login</Button>
+          <Button
+            onClick={() => setOpenSheet(true)}
+            className='font-light uppercase'
+          >
+            Login
+          </Button>
         </div>
       </div>
       <div className='grid grid-cols-2 gap-10 mt-20 h-[70vh] px-20 items-center'>
