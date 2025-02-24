@@ -76,8 +76,10 @@ function HomePage() {
               <SignUp
                 routing='hash'
                 signInUrl='/?formType=sign-in'
+                fallbackRedirectUrl='/account'  
               />
             )}
+ 
           </SheetContent>
         </Sheet>
       )}
@@ -86,5 +88,6 @@ function HomePage() {
 }
 
 export default HomePage
+
 
 
