@@ -1,9 +1,11 @@
 'use-client'
 
+import { Button } from '../ui/button'
+
 function SignOutButton() {
   return (
     <div>
-      Sign Out
+      <Button>Logout</Button>
     </div>
   )
 }
