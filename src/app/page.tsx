@@ -1,7 +1,7 @@
 'use client'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet'
-import { SignUp } from '@clerk/nextjs'
+import { SignUp, SignIn } from '@clerk/nextjs'
 import { useSearchParams } from 'next/navigation'
 import { useState } from 'react'
 
