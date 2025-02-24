@@ -64,6 +64,7 @@ function HomePage() {
             </SheetHeader>
             <SignUp
               routing='hash'
+              signInUrl='/?formType=sign-in'
             />
           </SheetContent>
         </Sheet>
