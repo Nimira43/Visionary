@@ -12,9 +12,12 @@ function SignOutButton() {
 
   const onSignOut = async () => {
     try {
+      setLoading(true)
       await signOut()
     } catch (error) {
       console.error(error)
+    } finally {
+      setLoading(false)
     }
   }
 
