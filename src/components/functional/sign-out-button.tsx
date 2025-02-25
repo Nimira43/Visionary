@@ -1,4 +1,4 @@
-'use-client'
+'use client'
 
 import { useAuth } from '@clerk/nextjs'
 import { Button } from '../ui/button'
