@@ -14,6 +14,7 @@ function SignOutButton() {
     try {
       setLoading(true)
       await signOut()
+      router.push('/')
     } catch (error) {
       console.error(error)
     } finally {
@@ -23,7 +24,12 @@ function SignOutButton() {
 
   return (
     <div>
-      <Button>Logout</Button>
+      <Button
+        disabled={loading}
+        onClick={onSignOut}
+      >
+        Logout
+      </Button>
     </div>
   )
 }
