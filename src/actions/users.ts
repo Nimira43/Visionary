@@ -5,10 +5,16 @@ import { currentUser } from '@clerk/nextjs/server'
 
 export const saveCurrentUser = async (userData: any) => {
   try {
-    const { data, error } = await supabase.from('user_profiles').insert([userData])
+    const { data, error } = await supabase
+      .from('user_profiles')
+      .insert([userData])
 
-    if(error) {
+    if (error) {
       throw new Error('Error saving user data')   
+    }
+    return {
+      success: true,
+      data: data,
     }
   } catch (error: any) {
     return {
@@ -44,8 +50,17 @@ export const getCurrentUser = async () => {
       clerk_user_id: clerkUser?.id,
     }
     const response = await saveCurrentUser(userData)
-  
-  } catch (error) {
 
+    if (response.success) {
+      return {
+        success: true,
+        data: response.data
+      }
+    } 
+  } catch (error: any) {
+    return {
+      success: false,
+      error: error.message,
+    }
   }
 }
