@@ -4,7 +4,18 @@ import supabase from '@/config/supabase-db-config'
 import { currentUser } from '@clerk/nextjs/server'
 
 export const saveCurrentUser = async (userData: any) => {
-  
+  try {
+    const { data, error } = await supabase.from('user_profiles').insert([userData])
+
+    if(error) {
+      throw new Error('Error saving user data')   
+    }
+  } catch (error: any) {
+    return {
+      success: false,
+      error: error.message
+    }
+  }
 }
 
 export const getCurrentUser = async () => {
