@@ -7,6 +7,8 @@ async function AccountPage() {
   const loggedInUser = await currentUser()
   const supdabaseUserResponse = await getCurrentUser()
  
+  console.log(supdabaseUserResponse)
+
   return (
     <div className='flex flex-col gap-5 p-5 text-dark'>
       <h1 className='bg-primary-light text-primary-dark uppercase text-2xl p-5 rounded-lg'>Account Page</h1>
