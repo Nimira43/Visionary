@@ -1,9 +1,11 @@
-function privateLayout() {
+function PrivateLayout({ children }: {
+  children: React.ReactNode
+}) {
   return (
     <div>
       PrivateLayout
     </div>
   )
-}
+} 
 
-export default privateLayout
+export default PrivateLayout

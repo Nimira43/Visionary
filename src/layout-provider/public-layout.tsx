@@ -1,4 +1,6 @@
-function publicLayout() {
+function publicLayout({ children }: {
+  children: React.ReactNode
+}) {
   return (
     <div>
       PublicLayout
