@@ -11,7 +11,7 @@ async function AccountPage() {
 
   return (
     <div className='flex flex-col gap-5 p-5 text-dark'>
-      <h1 className='uppercase'>Account Page</h1>
+      <h1 className='uppercase font-medium'>Account Page</h1>
       <h2>User ID: {loggedInUser?.id}</h2>
       <h2>First Name: {loggedInUser?.firstName}</h2>
       <h2>Last Name: {loggedInUser?.lastName}</h2>
