@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button'
 import { FiMenu } from 'react-icons/fi'
 
 function PrivateLayoutHeader() {
@@ -6,7 +7,12 @@ function PrivateLayoutHeader() {
       <h1 className='text-primary-dark text-3xl logo'>Visionary</h1>
       <div className='flex gap-5 items-center'>
         <span className='text-sm text-primary-dark hover:text-dark cursor-pointer'>Placeholder</span>
-        <FiMenu className='text-3xl text-primary-dark hover:text-dark cursor-pointer'/>
+        <Button>
+          <FiMenu
+            size={15}
+            className='text-primary-light'
+          />
+        </Button>
       </div>
     </div>
   )
