@@ -6,6 +6,9 @@ function PrivateLayout({ children }: {
   children: React.ReactNode
 }) {
   const [user, setUser] = React.useState<IUser | null>(null)
+
+  const fetchUser = async () => {}
+
   return (
     <div>
       <PrivateLayoutHeader />
