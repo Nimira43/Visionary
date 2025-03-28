@@ -8,12 +8,18 @@ function PrivateLayout({ children }: {
   const [user, setUser] = React.useState<IUser | null>(null)
   const [loading, setLoading] = React.useState<boolean>(true)
 
-  const fetchUser = async () => {}
+  const fetchUser = async () => {
+    try {
+      setLoading(true)
+    } catch (error: any) {
+
+    } finally {
+      setLoading(false)
+    }
+  }
 
   useEffect(() => {
-    try (
       fetchUser()
-    )
   }, [])
   return (
     <div>
