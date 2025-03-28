@@ -1,10 +1,11 @@
 import React from 'react'
 import PrivateLayoutHeader from './components/header'
+import { IUser } from '@/interfaces'
 
 function PrivateLayout({ children }: {
   children: React.ReactNode
 }) {
-  const [user, setUser] = React.useState(null)
+  const [user, setUser] = React.useState<IUser | null>(null)
   return (
     <div>
       <PrivateLayoutHeader />
