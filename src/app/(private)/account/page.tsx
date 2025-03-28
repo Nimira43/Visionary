@@ -1,4 +1,3 @@
-import { getCurrentUser } from '@/actions/users'
 import SignOutButton from '@/components/functional/sign-out-button'
 import { UserButton } from '@clerk/nextjs'
 import { currentUser } from '@clerk/nextjs/server'
