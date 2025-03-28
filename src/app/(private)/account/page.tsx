@@ -5,10 +5,7 @@ import { currentUser } from '@clerk/nextjs/server'
 
 async function AccountPage() {
   const loggedInUser = await currentUser()
-  const supdabaseUserResponse = await getCurrentUser()
- 
-  console.log(supdabaseUserResponse)
-
+  
   return (
     <div className='flex flex-col gap-5 p-5 text-dark'>
       <h1 className='uppercase font-medium'>Account Page</h1>
