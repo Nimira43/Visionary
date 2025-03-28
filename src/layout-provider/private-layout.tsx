@@ -28,9 +28,26 @@ function PrivateLayout({ children }: {
   useEffect(() => {
       fetchUser()
   }, [])
+
+  if (loading) {
+    return (
+      <div className='flex items-center justify-center h-screen'>
+        <h1>Loading...</h1>
+      </div>
+    )
+  }
+
+  if (!loading && !user) {
+    return (
+      <div>Error fetching user data</div>
+    )
+  }
+
   return (
     <div>
-      <PrivateLayoutHeader />
+      <PrivateLayoutHeader
+        user={user}
+      />
       {children}
     </div>
   )
