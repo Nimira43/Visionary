@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PrivateLayoutHeader from './components/header'
 import { IUser } from '@/interfaces'
 
@@ -9,6 +9,9 @@ function PrivateLayout({ children }: {
 
   const fetchUser = async () => {}
 
+  useEffect(() => {
+    
+  })
   return (
     <div>
       <PrivateLayoutHeader />
