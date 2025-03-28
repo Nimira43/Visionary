@@ -13,8 +13,13 @@ function PrivateLayout({ children }: {
     try {
       setLoading(true)
       const response = await getCurrentUser()
+      if (response.success) {
+        setUser(response.data)
+      } else {
+        throw new Error('Error fetching user data')
+      }
     } catch (error: any) {
-
+      console.error(error.message)
     } finally {
       setLoading(false)
     }
