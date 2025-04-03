@@ -3,6 +3,7 @@ import PrivateLayoutHeader from './components/header'
 import { IUser } from '@/interfaces'
 import { getCurrentUser } from '@/actions/users'
 import Spinner from './components/spinner'
+import toast from 'react-hot-toast'
 
 function PrivateLayout({ children }: {
   children: React.ReactNode
@@ -20,7 +21,7 @@ function PrivateLayout({ children }: {
         throw new Error('Error fetching user data')
       }
     } catch (error: any) {
-      
+      toast.error(error.message)
     } finally {
       setLoading(false)
     }
