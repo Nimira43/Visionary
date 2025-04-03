@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import PrivateLayoutHeader from './components/header'
 import { IUser } from '@/interfaces'
 import { getCurrentUser } from '@/actions/users'
+import Spinner from './components/spinner'
 
 function PrivateLayout({ children }: {
   children: React.ReactNode
@@ -32,7 +33,7 @@ function PrivateLayout({ children }: {
   if (loading) {
     return (
       <div className='flex items-center justify-center h-screen'>
-        <Spinner
+        <Spinner />
       </div>
     )
   }
