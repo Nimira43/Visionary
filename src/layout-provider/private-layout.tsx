@@ -20,7 +20,7 @@ function PrivateLayout({ children }: {
         throw new Error('Error fetching user data')
       }
     } catch (error: any) {
-      console.error(error.message)
+      
     } finally {
       setLoading(false)
     }
