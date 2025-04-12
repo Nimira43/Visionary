@@ -3,7 +3,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sh
 function PrivateLayoutSidebar({
   onClose, openSidebar
 }: { onClose: () => void, openSidebar: boolean }) {
-  return ()
+  return (
     <Sheet
       open={openSidebar}
       onOpenChange={onClose}
@@ -12,21 +12,6 @@ function PrivateLayoutSidebar({
         <SheetHeader>
           <SheetTitle></SheetTitle>
         </SheetHeader>
-
-        {formType === 'sign-in' ? (
-          <SignIn
-            routing='hash'
-            signUpUrl='/?formType=sign-up'
-            fallbackRedirectUrl='/account'
-          />
-        ) : (
-          <SignUp
-            routing='hash'
-            signInUrl='/?formType=sign-in'
-            fallbackRedirectUrl='/account'  
-          />
-        )}
-
       </SheetContent>
     </Sheet>
   )
