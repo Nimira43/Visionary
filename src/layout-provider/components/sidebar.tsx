@@ -1,14 +1,54 @@
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet'
+import { AiOutlineHome } from 'react-icons/ai'
+import { RiUser6Line } from 'react-icons/ri'
+import { MdOutlineSchool } from 'react-icons/md'
+import { GiAtom } from 'react-icons/gi'
+import { LiaProjectDiagramSolid } from 'react-icons/lia'
+import { VscChecklist } from "react-icons/vsc"
 
 function PrivateLayoutSidebar({
   onClose, openSidebar
 }: { onClose: () => void, openSidebar: boolean }) {
+
+  const menuItems = [
+    {
+      title: 'Home',
+      path: '/account',
+      icon: <AiOutlineHome size={14} />
+    },
+    {
+      title: 'Profile',
+      path: '/account/profile',
+      icon: <RiUser6Line size={14} />
+    },
+    {
+      title: 'Education',
+      path: '/account/education',
+      icon: <MdOutlineSchool size={14} />
+    },
+    {
+      title: 'Skills',
+      path: '/account/skills',
+      icon: <GiAtom size={14} />
+    },
+    {
+      title: 'Projects',
+      path: '/account/projects',
+      icon: <LiaProjectDiagramSolid size={14} />
+    },
+    {
+      title: 'Experiences',
+      path: '/account/experiences',
+      icon: <VscChecklist size={14} />
+    }
+  ]
+
   return (
     <Sheet
       open={openSidebar}
       onOpenChange={onClose}
     >
-      <SheetContent className='min-w-[500px] flex justify-center items-center bg-primary-light'>
+      <SheetContent className='min-w-[300px] flex justify-center items-center bg-primary-light'>
         <SheetHeader>
           <SheetTitle></SheetTitle>
         </SheetHeader>
