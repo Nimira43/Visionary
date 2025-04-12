@@ -52,6 +52,19 @@ function PrivateLayoutSidebar({
         <SheetHeader>
           <SheetTitle></SheetTitle>
         </SheetHeader>
+        <div className='flex flex-col gap-5'>
+          {menuItems.map((item) => (
+            <div
+              key={item.title}
+              className='flex gap-4'
+            >
+              {item.icon}
+              <span className='text-sm font-medium text-dark hover:text-primary-dark uppercase'>
+                {item.title}
+              </span>
+            </div>
+          ))}
+        </div>
       </SheetContent>
     </Sheet>
   )
