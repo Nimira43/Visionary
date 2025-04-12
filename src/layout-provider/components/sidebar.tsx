@@ -48,15 +48,15 @@ function PrivateLayoutSidebar({
       open={openSidebar}
       onOpenChange={onClose}
     >
-      <SheetContent className='min-w-[300px] flex justify-center items-center bg-primary-light'>
+      <SheetContent className='min-w-[300px] bg-primary-light'>
         <SheetHeader>
           <SheetTitle></SheetTitle>
         </SheetHeader>
-        <div className='flex flex-col gap-5'>
+        <div className='flex flex-col gap-7 mt-10'>
           {menuItems.map((item) => (
             <div
               key={item.title}
-              className='flex gap-4'
+              className='flex gap-4 items-center p-3'
             >
               {item.icon}
               <span className='text-sm font-medium text-dark hover:text-primary-dark uppercase'>
