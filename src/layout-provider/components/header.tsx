@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button'
 import { FiMenu } from 'react-icons/fi'
 import { IUser } from '../../interfaces/index'
 import { useState } from 'react'
+import PrivateLayoutSidebar from './sidebar';
 
 function PrivateLayoutHeader({ user }: { user: IUser }) {
   const [openSidebar, setOpenSidebar] = useState(false)
@@ -9,15 +10,10 @@ function PrivateLayoutHeader({ user }: { user: IUser }) {
     <div className='bg-primary-light p-5 flex justify-between items-center'>
       <h1 className='text-primary-dark text-3xl logo'>Visionary</h1>
       <div className='flex gap-5 items-center'>
-        <span className='text-sm text-primary-dark hover:text-dark cursor-pointer'>
-          {user.name}
-        </span>
-        <Button>
-          <FiMenu
-            size={15}
-            className='text-primary-light'
-          />
-        </Button>
+        [openSidebar && (
+        <PrivateLayoutSidebar
+          onClose={() => setOpenSidebar(false)}
+        />)] 
       </div>
     </div>
   )
