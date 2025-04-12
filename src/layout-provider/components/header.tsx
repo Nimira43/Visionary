@@ -1,6 +1,8 @@
 import { IUser } from '../../interfaces/index'
 import { useState } from 'react'
-import PrivateLayoutSidebar from './sidebar';
+import { Button } from '@/components/ui/button'
+import { FiMenu } from 'react-icons/fi'
+import PrivateLayoutSidebar from './sidebar'
 
 function PrivateLayoutHeader({ user }: { user: IUser }) {
   const [openSidebar, setOpenSidebar] = useState(false)
@@ -8,12 +10,19 @@ function PrivateLayoutHeader({ user }: { user: IUser }) {
     <div className='bg-primary-light p-5 flex justify-between items-center'>
       <h1 className='text-primary-dark text-3xl logo'>Visionary</h1>
       <div className='flex gap-5 items-center'>
-        [openSidebar && (
+        <span className='text-sm text-dark'>{user.name}</span>
+        <Button
+          onClick={() => setOpenSidebar(true)}
+        >
+          <FiMenu size={15} className='text-light' />
+        </Button>
+      </div>
+      {openSidebar && (
         <PrivateLayoutSidebar
           openSidebar={openSidebar}
           onClose={() => setOpenSidebar(false)}
-        />)] 
-      </div>
+        />
+      )}
     </div>
   )
 }
