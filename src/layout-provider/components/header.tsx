@@ -1,5 +1,3 @@
-import { Button } from '@/components/ui/button'
-import { FiMenu } from 'react-icons/fi'
 import { IUser } from '../../interfaces/index'
 import { useState } from 'react'
 import PrivateLayoutSidebar from './sidebar';
@@ -12,6 +10,7 @@ function PrivateLayoutHeader({ user }: { user: IUser }) {
       <div className='flex gap-5 items-center'>
         [openSidebar && (
         <PrivateLayoutSidebar
+          openSidebar={openSidebar}
           onClose={() => setOpenSidebar(false)}
         />)] 
       </div>
