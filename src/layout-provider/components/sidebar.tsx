@@ -6,6 +6,7 @@ import { GiAtom } from 'react-icons/gi'
 import { LiaProjectDiagramSolid } from 'react-icons/lia'
 import { VscChecklist } from "react-icons/vsc"
 import { usePathname, useRouter } from 'next/navigation'
+import SignOutButton from '@/components/functional/sign-out-button'
 
 function PrivateLayoutSidebar({
   onClose, openSidebar
@@ -76,6 +77,7 @@ function PrivateLayoutSidebar({
               </span>
             </div>
           ))}
+          <SignOutButton />
         </div>
       </SheetContent>
     </Sheet>
