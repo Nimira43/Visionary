@@ -5,14 +5,14 @@ import { MdOutlineSchool } from 'react-icons/md'
 import { GiAtom } from 'react-icons/gi'
 import { LiaProjectDiagramSolid } from 'react-icons/lia'
 import { VscChecklist } from "react-icons/vsc"
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 
 function PrivateLayoutSidebar({
   onClose, openSidebar
 }: { onClose: () => void, openSidebar: boolean }) {
 
   const pathname = usePathname()
-
+  const router = useRouter()
   const menuItems = [
     {
       title: 'Home',
@@ -59,10 +59,16 @@ function PrivateLayoutSidebar({
           {menuItems.map((item) => (
             <div
               key={item.title}
-              className={`flex gap-4 items-center p-3 ${
-                  pathname === item.path ? 'border-b border-b-primary-medium' : ''
+              className={`flex gap-4 items-center p-3 cursor-pointer ${
+                pathname === item.path
+                  ? 'border-b border-b-primary-medium cursor-pointer'
+                  : ''
                 }`
               }
+              onClick={() => {
+                router.push(item.path)
+                onClose()
+              }}
             >
               {item.icon}
               <span className='text-sm font-medium text-dark hover:text-primary-dark uppercase'>
