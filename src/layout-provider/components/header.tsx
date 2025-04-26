@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 import { FiMenu } from 'react-icons/fi'
 import PrivateLayoutSidebar from './sidebar'
 
-function PrivateLayoutHeader({ user }: { user: IUser }) {
+function PrivateLayoutHeader() {
   const [openSidebar, setOpenSidebar] = useState(false)
   return (
     <div className='bg-primary-light p-5 flex justify-between items-center'>

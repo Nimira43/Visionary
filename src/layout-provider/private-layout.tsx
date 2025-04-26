@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import PrivateLayoutHeader from './components/header'
-import { IUser } from '@/interfaces'
 import { getCurrentUser } from '@/actions/users'
 import Spinner from './components/spinner'
 import toast from 'react-hot-toast'
@@ -48,7 +47,7 @@ function PrivateLayout({ children }: {
 
   return (
     <div>
-      <PrivateLayoutHeader user={user!}/>
+      <PrivateLayoutHeader/>
       <div className='p-5'>
         {children}
       </div>
