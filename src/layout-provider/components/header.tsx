@@ -1,10 +1,11 @@
-import { IUser } from '../../interfaces/index'
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { FiMenu } from 'react-icons/fi'
 import PrivateLayoutSidebar from './sidebar'
+import usersGlobalStore, { IUsersGlobalStore } from '@/global-store/users-store'
 
 function PrivateLayoutHeader() {
+  const { user } = usersGlobalStore() as IUsersGlobalStore
   const [openSidebar, setOpenSidebar] = useState(false)
   return (
     <div className='bg-primary-light p-5 flex justify-between items-center'>
