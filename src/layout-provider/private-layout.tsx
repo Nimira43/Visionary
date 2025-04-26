@@ -4,11 +4,12 @@ import { IUser } from '@/interfaces'
 import { getCurrentUser } from '@/actions/users'
 import Spinner from './components/spinner'
 import toast from 'react-hot-toast'
+import usersGlobalStore, { IUsersGlobalStore } from '@/global-store/users-store'
 
 function PrivateLayout({ children }: {
   children: React.ReactNode
 }) {
-  const [user, setUser] = React.useState<IUser | null>(null)
+  const { user, setUser } = usersGlobalStore() as IUsersGlobalStore
   const [loading, setLoading] = React.useState<boolean>(true)
 
   const fetchUser = async () => {
