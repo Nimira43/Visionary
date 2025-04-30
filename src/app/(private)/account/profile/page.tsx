@@ -1,6 +1,6 @@
 'use client'
 
-import { Form } from '@/components/ui/form'
+import { Form, FormField, FormItem } from '@/components/ui/form'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -26,7 +26,22 @@ function ProfilePage() {
   return (
     <div>
       <h1 className='text-xl uppercase medium'>Profile</h1>
-      <Form></Form>
+      <Form {...form}>
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className='space-y-8'
+        >
+          <FormField
+            control={form.control}
+            name='username'
+            render={({ field }) => {
+              <FormItem>
+                
+              </FormItem>
+            }}
+          />
+        </form>
+      </Form>
     </div>
   )
 }
