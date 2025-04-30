@@ -1,9 +1,11 @@
 'use client'
 
-import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form'
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
 
 function ProfilePage() {
   const formSchema = z.object({
@@ -34,15 +36,18 @@ function ProfilePage() {
           <FormField
             control={form.control}
             name='username'
-            render={({ field }) => {
+            render={({ field }) => (
               <FormItem>
                 <FormLabel>Username</FormLabel> 
                 <FormControl>
-                  <Input></Input>
+                  <Input
+                    placeholder='Username' {...field} />
                 </FormControl>
+                <FormMessage />
               </FormItem>
-            }}
+            )}
           />
+          <Button type='submit'>Submit</Button>
         </form>
       </Form>
     </div>
