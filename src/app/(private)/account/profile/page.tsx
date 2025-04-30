@@ -1,6 +1,9 @@
 'use client'
 
+import { Form } from '@/components/ui/form'
+import { useForm } from 'react-hook-form'
 import { z } from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
 
 function ProfilePage() {
   const formSchema = z.object({
@@ -8,10 +11,18 @@ function ProfilePage() {
       message: 'Username must be at least 2 characters',
     }),
   })
+
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      username: '',
+    }
+  })
   
   return (
     <div>
-      
+      <h1 className='text-xl uppercase medium'>Profile</h1>
+      <Form></Form>
     </div>
   )
 }
