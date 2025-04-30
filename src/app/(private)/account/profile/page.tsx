@@ -26,11 +26,9 @@ function ProfilePage() {
       .string()
       .nonempty(),
     bio: z
-      .string()
-      .nonempty(),
+      .string(),
     hero_image: z
       .string()
-      .nonempty(),
   })
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -44,7 +42,7 @@ function ProfilePage() {
   
   return (
     <div>
-      <h1 className='text-2xl uppercase medium mb-5'>Profile</h1>
+      <h1 className='text-2xl uppercase font-normal mb-5'>Profile</h1>
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -55,10 +53,38 @@ function ProfilePage() {
             name='name'
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Name</FormLabel> 
+                <FormLabel className='uppercase'>Name</FormLabel> 
                 <FormControl>
                   <Input
                     placeholder='Name...' {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name='title'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className='uppercase'> Job Title</FormLabel> 
+                <FormControl>
+                  <Input
+                    placeholder='Job Title...' {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name='tag_line'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className='uppercase'>Tagline</FormLabel> 
+                <FormControl>
+                  <Input
+                    placeholder='Tagline...' {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
