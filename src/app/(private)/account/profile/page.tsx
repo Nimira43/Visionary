@@ -9,15 +9,15 @@ import { Button } from '@/components/ui/button'
 
 function ProfilePage() {
   const formSchema = z.object({
-    username: z.string().min(2, {
-      message: 'Username must be at least 2 characters',
+    profileName: z.string().min(2, {
+      message: 'Profile name must be at least 2 characters',
     }),
   })
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: '',
+      profileName: '',
     }
   })
 
@@ -27,7 +27,7 @@ function ProfilePage() {
   
   return (
     <div>
-      <h1 className='text-xl uppercase medium'>Profile</h1>
+      <h1 className='text-2xl uppercase medium mb-5'>Profile</h1>
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -35,13 +35,13 @@ function ProfilePage() {
         >
           <FormField
             control={form.control}
-            name='username'
+            name='profileName'
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Username</FormLabel> 
+                <FormLabel>Profile Name</FormLabel> 
                 <FormControl>
                   <Input
-                    placeholder='Username' {...field} />
+                    placeholder='Profile Name...' {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
