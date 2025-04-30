@@ -9,9 +9,25 @@ import { Button } from '@/components/ui/button'
 
 function ProfilePage() {
   const formSchema = z.object({
-    profileName: z.string().min(2, {
-      message: 'Profile name must be at least 2 characters',
-    }),
+    name: z
+      .string()
+      .nonempty()
+      .min(3)
+      .max(30),
+    title: z
+      .string()
+      .nonempty()
+      .min(3)
+      .max(30),
+    tag_line: z
+      .string()
+      .nonempty(),
+    bio: z
+      .string()
+      .nonempty(),
+    hero_image: z
+      .string()
+      .nonempty(),
   })
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -38,10 +54,10 @@ function ProfilePage() {
             name='profileName'
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Profile Name</FormLabel> 
+                <FormLabel>Name</FormLabel> 
                 <FormControl>
                   <Input
-                    placeholder='Profile Name...' {...field} />
+                    placeholder='Name...' {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
