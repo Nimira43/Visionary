@@ -1,6 +1,6 @@
 'use client'
 
-import { Form, FormField, FormItem } from '@/components/ui/form'
+import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -36,7 +36,10 @@ function ProfilePage() {
             name='username'
             render={({ field }) => {
               <FormItem>
-                
+                <FormLabel>Username</FormLabel> 
+                <FormControl>
+                  <Input></Input>
+                </FormControl>
               </FormItem>
             }}
           />
