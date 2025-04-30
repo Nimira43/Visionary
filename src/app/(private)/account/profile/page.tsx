@@ -1,3 +1,5 @@
+'use client'
+
 function ProfilePage() {
   return (
     <div>
