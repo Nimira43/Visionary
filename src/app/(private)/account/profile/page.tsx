@@ -25,10 +25,10 @@ function ProfilePage() {
     tag_line: z
       .string()
       .nonempty(),
-    bio: z
-      .string(),
-    hero_image: z
-      .string()
+    // bio: z
+    //   .string(),
+    // hero_image: z
+    //   .string()
   })
 
   const form = useForm<z.infer<typeof formSchema>>({
