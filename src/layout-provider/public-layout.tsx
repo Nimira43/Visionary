@@ -1,11 +1,11 @@
-function publicLayout({ children }: {
-  children: React.ReactNode
-}) {
-  return (
-    <div>
-      {children}
-    </div>
-  )
-}
+// function publicLayout({ children }: {
+//   children: React.ReactNode
+// }) {
+//   return (
+//     <div>
+//       {children}
+//     </div>
+//   )
+// }
 
-export default publicLayout
+// export default publicLayout
