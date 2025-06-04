@@ -1,20 +1,25 @@
-import { Button } from "@/components/ui/button"
+'use client'
+
+import { Button } from '@/components/ui/button'
+import { useState } from 'react'
+
+const menuItems = [
+  {
+    title: 'Home',
+    path: '/'
+  },
+  {
+    title: 'About',
+    path: '/about'
+  },
+  {
+    title: 'Contact',
+    path: '/contact'
+  },
+]
 
 function HomePage() {
-  const menuItems = [
-    {
-      title: 'Home',
-      path: '/'
-    },
-    {
-      title: 'About',
-      path: '/about'
-    },
-    {
-      title: 'Contact',
-      path: '/contact'
-    },
-  ]
+  const [openSheet, setOpenSheet] = useState(false) 
 
   return (
     <div className='flex flex-col min-h-screen'>
