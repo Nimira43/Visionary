@@ -34,7 +34,10 @@ function HomePage() {
                 {item.title}
               </span>
           ))}
-          <Button className='uppercase'>
+          <Button 
+            onClick={() => setOpenSheet(true)}
+            className='uppercase'
+          >
             Login
           </Button>
         </div>
