@@ -63,7 +63,7 @@ function HomePage() {
           open={openSheet}
           onOpenChange={setOpenSheet}
         >
-          <SheetContent className='min-w-[500px] flex justify-center items-center bg-primary-light'>
+          <SheetContent className='min-w-[500px] flex justify-center items-center bg-main-light'>
             <SheetHeader>
               <SheetTitle></SheetTitle>
             </SheetHeader>
