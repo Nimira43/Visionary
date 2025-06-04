@@ -34,14 +34,16 @@ function HomePage() {
           </Button>
         </div>
       </div>
-      <div className='grid grid-cols-2 gap-10 mt-20 h-[70vh] px-20'>
+      <div className='grid grid-cols-2 gap-10 mt-20 h-[70vh] px-20 '>
           <div className='flex flex-col justify-center'>
             <div>
-              <h1 className='text-4xl text-main-dark logo'>Visionary Solutions</h1>
+              <h1 className='text-4xl text-main-dark logo pb-5'>Visionary Solutions</h1>
               <p className='text-grey-dark mt-2 text-sm font-normal'>Unlock your potential with our cutting-edge portfolio builder. Showcase your skills, achievements, and projects in a visually stunning and professional manner. Take control of your career and make your mark with ease. Visualise Your Future today.</p>
             </div>
           </div>
-          <div></div>
+          <div className='flex justify-center'>
+            <img src="/images/homepage.svg" alt="Home page image" />
+          </div>
       </div>
     </div>     
   )
