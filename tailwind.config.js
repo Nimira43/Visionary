@@ -13,6 +13,7 @@ module.exports = {
   			'main-dark': '#008080',
   			'main-light': '#aaf9f9',
   			'support': '#ff4500',
+				'gold': '#ffd700',
   			'light': '#fffcfa',
   			'dark': '#111',
   			'grey-light-extra': '#eee',
