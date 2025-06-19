@@ -3,8 +3,25 @@
 import supabase from '@/config/supabase-db-config'
 import { currentUser } from '@clerk/nextjs/server'
 
-export const saveCurrentUser = async () => {
+export const saveCurrentUser = async (userData : any) => {
+  try {
+    const {data, error} = await supabase
+      .from('user_profiles')
+      .insert([userData])
 
+    if (error) {
+      throw new Error('Error saving user data.')
+    }
+    return {
+      success: true,
+      data: data
+    }
+  } catch (error: any) {
+    return {
+      success: false,
+      error: error.message
+    }
+  }
 }
 
 export const getCurrentUser = async () => {
@@ -35,6 +52,8 @@ export const getCurrentUser = async () => {
         email: clerkUser?.emailAddresses[0].emailAddress,
         clerk_user_id: clerkUser?.id,
       }
+
+      const response = await saveCurrentUser(userData)
 
   } catch (error) {
     
