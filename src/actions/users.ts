@@ -54,6 +54,12 @@ export const getCurrentUser = async () => {
       }
 
       const response = await saveCurrentUser(userData)
+      if (response.success) {
+        return {
+          success: true,
+          data: response.data
+        }
+      }
 
   } catch (error) {
     
