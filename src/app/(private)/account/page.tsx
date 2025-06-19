@@ -1,11 +1,12 @@
-// import { getCurrentUser } from '@/actions/user'
+import { getCurrentUser } from '@/actions/users'
 import SignOutButton from '@/components/functional/sign-out-button'
 import { UserButton } from '@clerk/nextjs'
 import { currentUser } from '@clerk/nextjs/server'
 
 async function AccountPage() {
   const loggedInUser = await currentUser()
-  // const superbaseUserResponse = await getCurrentUser()
+  const superbaseUserResponse = await getCurrentUser()
+  console.log(superbaseUserResponse)
 
   return (
     <div className='flex flex-col gap-5 p-5'>

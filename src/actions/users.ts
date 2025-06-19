@@ -60,7 +60,8 @@ export const getCurrentUser = async () => {
           data: response.data
         }
       }
-
+      throw new Error('Error saving user data.')
+  
   } catch (error: any) {
     return {
       success: false,
