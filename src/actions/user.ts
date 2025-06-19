@@ -29,6 +29,13 @@ export const getCurrentUser = async () => {
           data: user
         }
       }
+
+      const userData = {
+        name: clerkUser?.firstName + ' ' + clerkUser?.lastName,
+        email: clerkUser?.emailAddresses[0].emailAddress,
+        clerk_user_id: clerkUser?.id,
+      }
+
   } catch (error) {
     
   }
