@@ -61,7 +61,10 @@ export const getCurrentUser = async () => {
         }
       }
 
-  } catch (error) {
-    
+  } catch (error: any) {
+    return {
+      success: false,
+      error: error.message
+    }
   }
 }
