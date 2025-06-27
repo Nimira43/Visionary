@@ -18,7 +18,7 @@ module.exports = {
   			'dark': '#111',
   			'grey-light-extra': '#eee',
   			'grey-light': '#ccc',
-  			'grey-medium': '#898989',
+  			'grey-medium': '#999',
   			'grey-dark': '#333',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
