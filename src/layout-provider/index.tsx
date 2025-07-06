@@ -2,7 +2,9 @@
 
 import { usePathname } from 'next/navigation'
 
-function LayoutProvider() {
+function LayoutProvider({children} : {
+  children : React.ReactNode
+}) {
   return (
     <div>
       
