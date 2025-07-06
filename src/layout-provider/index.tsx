@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation'
 import PrivateLayout from './private-layout'
+import PublicLayout from './public-layout'
 
 function LayoutProvider({children} : {
   children : React.ReactNode
@@ -17,9 +18,9 @@ function LayoutProvider({children} : {
   }
 
   return (
-    <div>
-      
-    </div>
+    <PublicLayout>
+      {children}
+    </PublicLayout>
   )
 }
 
