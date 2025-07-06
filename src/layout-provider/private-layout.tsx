@@ -1,4 +1,6 @@
-function PrivateLayout() {
+function PrivateLayout({children} : {
+  children: React.ReactNode
+}) {
   return (
     <div>
       Private Layout
