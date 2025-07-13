@@ -3,7 +3,8 @@ function PrivateLayout({children} : {
 }) {
   return (
     <div>
-      Private Layout
+      <h1>Header</h1>
+      {children}
     </div>
   )
 }

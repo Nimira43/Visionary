@@ -3,7 +3,7 @@ function PublicLayout({children} : {
 }) {
   return (
     <div>
-      Public Layout
+      {children}
     </div>
   )
 }
