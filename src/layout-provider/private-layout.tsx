@@ -1,9 +1,11 @@
+import PrivateLayoutHeader from './_components/header'
+
 function PrivateLayout({children} : {
   children: React.ReactNode
 }) {
   return (
     <div>
-      <h1>Header</h1>
+      <PrivateLayoutHeader />
       {children}
     </div>
   )
