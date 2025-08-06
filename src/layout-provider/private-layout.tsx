@@ -12,7 +12,14 @@ function PrivateLayout({children} : {
   const fetchUser = async () => {
     try {
       setLoading(true)
-      const response = await getCurrentUser()
+      const response: any = await getCurrentUser()
+
+      if (response.success) {
+        setUser(response.data)
+      } else {
+        throw new Error('Error fetching user data.')
+      }
+
     } catch (error: any) {
          
     } finally {
