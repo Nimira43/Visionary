@@ -21,7 +21,7 @@ function PrivateLayout({children} : {
       }
 
     } catch (error: any) {
-         
+      console.error(error.message)
     } finally {
       setLoading(false)
     }
