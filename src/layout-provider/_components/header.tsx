@@ -1,7 +1,10 @@
+import { IUser } from '@/app/interfaces'
 import { Button } from '@/components/ui/button'
 import { TbAlignCenter } from 'react-icons/tb'
 
-function PrivateLayoutHeader() {
+function PrivateLayoutHeader({ user } : 
+  { user: IUser }
+) {
   return (
     <div className='bg-main-light p-5 flex justify-between items-center'>
       <h1 className='text-main-dark text-4xl logo'>Visionary</h1>

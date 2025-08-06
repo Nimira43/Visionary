@@ -33,7 +33,9 @@ function PrivateLayout({children} : {
 
   return (
     <div>
-      <PrivateLayoutHeader />
+      <PrivateLayoutHeader 
+        user={user}
+      />
       {children}
     </div>
   )
