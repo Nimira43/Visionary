@@ -39,6 +39,14 @@ function PrivateLayout({children} : {
     )
   }
 
+  if (!loading && !user) {
+    return (
+      <div>
+        <h1>Error fetching user data</h1>
+      </div>
+    )
+  }
+
   return (
     <div>
       <PrivateLayoutHeader 
