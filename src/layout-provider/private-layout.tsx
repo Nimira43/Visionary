@@ -10,9 +10,11 @@ function PrivateLayout({children} : {
 
   const fetchUser = async () => {
     try {
-      
+      setLoading(true)
     } catch (error: any) {
-      
+            
+    } finally {
+      setLoading(false)
     }
   }
 
