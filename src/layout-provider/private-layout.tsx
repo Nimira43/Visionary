@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import PrivateLayoutHeader from './_components/header'
 import { IUser } from '@/app/interfaces'
+import { getCurrentUser } from '@/actions/users'
 
 function PrivateLayout({children} : {
   children: React.ReactNode
@@ -11,8 +12,9 @@ function PrivateLayout({children} : {
   const fetchUser = async () => {
     try {
       setLoading(true)
+      const response = await getCurrentUser()
     } catch (error: any) {
-            
+         
     } finally {
       setLoading(false)
     }
