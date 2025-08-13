@@ -1,4 +1,5 @@
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet'
+import { RiHome9Line, RiUser6Line, RiSchoolLine, RiListUnordered, RiAwardLine, RiBookShelfLine } from "react-icons/ri"
 
 function PrivateLayoutSidebar({ 
   onClose,
@@ -10,7 +11,9 @@ function PrivateLayoutSidebar({
 
   const menuItems = [
     {
-      
+      title: 'Home',
+      path: '/account',
+      icon: 
     }
   ]
 
