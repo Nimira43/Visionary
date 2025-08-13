@@ -7,12 +7,19 @@ function PrivateLayoutSidebar({
   onClose: () => void,
   openSidebar: boolean
 }) {
+
+  const menuItems = [
+    {
+      
+    }
+  ]
+
   return (
     <Sheet
       open={openSidebar}
       onOpenChange={onClose}
     >
-      <SheetContent className='min-w-[500px] flex justify-center items-center bg-main-light'>
+      <SheetContent className='min-w-[300px] flex justify-center items-center bg-main-light'>
         <SheetHeader>
           <SheetTitle></SheetTitle>
         </SheetHeader>
