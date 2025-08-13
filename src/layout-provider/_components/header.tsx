@@ -2,6 +2,7 @@ import { IUser } from '@/app/interfaces'
 import { Button } from '@/components/ui/button'
 import { useState } from 'react'
 import { TbAlignCenter } from 'react-icons/tb'
+import PrivateLayoutSidebar from './sidebar'
 
 function PrivateLayoutHeader({ user } : 
   { user: IUser }
@@ -22,8 +23,12 @@ function PrivateLayoutHeader({ user } :
           size={15}
         />
         </Button>
-        
       </div>
+      {openSidebar && (
+        <PrivateLayoutSidebar 
+          onClose={setOpenSidebar(false)}
+        />
+      )}
     </div>
   )
 }
