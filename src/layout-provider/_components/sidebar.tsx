@@ -9,8 +9,8 @@ function PrivateLayoutSidebar({
 }) {
   return (
     <Sheet
-      open={openSheet}
-      onOpenChange={setOpenSheet}
+      open={openSidebar}
+      onOpenChange={onClose}
     >
       <SheetContent className='min-w-[500px] flex justify-center items-center bg-main-light'>
         <SheetHeader>
