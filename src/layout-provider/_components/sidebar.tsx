@@ -13,8 +13,33 @@ function PrivateLayoutSidebar({
     {
       title: 'Home',
       path: '/account',
-      icon: 
-    }
+      icon: <RiHome9Line />
+    },
+    {
+      title: 'Profile',
+      path: '/',
+      icon: <RiUser6Line />
+    },
+    {
+      title: 'Education',
+      path: '/',
+      icon: < RiSchoolLine/>
+    },
+    {
+      title: 'Projects',
+      path: '/',
+      icon: <RiListUnordered />
+    },
+    {
+      title: 'Skills',
+      path: '/',
+      icon: <RiAwardLine />
+    },
+    {
+      title: 'Experience',
+      path: '/',
+      icon: <RiBookShelfLine />
+    },
   ]
 
   return (
