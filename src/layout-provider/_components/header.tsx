@@ -15,6 +15,7 @@ function PrivateLayoutHeader({ user } :
           {user.name}
         </span>
         <Button
+        onClick={() => setOpenSidebar(true)}
           variant='special'
         >
           <TbAlignCenter              
