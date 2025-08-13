@@ -17,19 +17,7 @@ function PrivateLayoutSidebar({
           <SheetTitle></SheetTitle>
         </SheetHeader>
 
-        {formType === 'sign-in' ? (
-          <SignIn
-            routing='hash'
-            signUpUrl='/?formType=sign-up'
-            fallbackRedirectUrl='/account'
-          />
-        ) : (
-          <SignUp
-            routing='hash'
-            signInUrl='/?formType=sign-in'
-            fallbackRedirectUrl='/account'  
-          />
-        )}
+        
 
       </SheetContent>
     </Sheet>
