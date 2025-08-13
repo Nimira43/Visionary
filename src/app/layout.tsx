@@ -3,6 +3,7 @@ import { Poppins } from 'next/font/google'
 import './globals.css'
 import { ClerkProvider } from '@clerk/nextjs'
 import LayoutProvider from '@/layout-provider'
+import { Toaster} from 'react-hot-toast'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -26,6 +27,10 @@ export default function RootLayout({
           <LayoutProvider>
             {children}
           </LayoutProvider>
+          <Toaster 
+            position='top-right' 
+            reverseOrder={false}
+          />
         </body>
       </html>
     </ClerkProvider>
