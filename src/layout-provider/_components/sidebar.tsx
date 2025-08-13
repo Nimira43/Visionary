@@ -22,22 +22,22 @@ function PrivateLayoutSidebar({
     },
     {
       title: 'Education',
-      path: '/',
+      path: '/account/education',
       icon: < RiSchoolLine size={14}/>
     },
     {
       title: 'Projects',
-      path: '/',
+      path: '/account/projects',
       icon: <RiListUnordered size={14} />
     },
     {
       title: 'Skills',
-      path: '/',
+      path: '/account/skills',
       icon: <RiAwardLine size={14} />
     },
     {
       title: 'Experience',
-      path: '/',
+      path: '/account/experience',
       icon: <RiBookShelfLine size={14} />
     },
   ]
