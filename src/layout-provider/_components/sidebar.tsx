@@ -1,4 +1,6 @@
-function PrivateLayoutSidebar() {
+function PrivateLayoutSidebar({ onClose } : {
+  onClose: () => void
+}) {
   return (
     <div>PrivateLayoutSidebar</div>
   )
