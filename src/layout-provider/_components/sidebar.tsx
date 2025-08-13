@@ -13,32 +13,32 @@ function PrivateLayoutSidebar({
     {
       title: 'Home',
       path: '/account',
-      icon: <RiHome9Line />
+      icon: <RiHome9Line size={14} />
     },
     {
       title: 'Profile',
-      path: '/',
-      icon: <RiUser6Line />
+      path: '/account/profile',
+      icon: <RiUser6Line size={14} />
     },
     {
       title: 'Education',
       path: '/',
-      icon: < RiSchoolLine/>
+      icon: < RiSchoolLine size={14}/>
     },
     {
       title: 'Projects',
       path: '/',
-      icon: <RiListUnordered />
+      icon: <RiListUnordered size={14} />
     },
     {
       title: 'Skills',
       path: '/',
-      icon: <RiAwardLine />
+      icon: <RiAwardLine size={14} />
     },
     {
       title: 'Experience',
       path: '/',
-      icon: <RiBookShelfLine />
+      icon: <RiBookShelfLine size={14} />
     },
   ]
 
@@ -51,9 +51,6 @@ function PrivateLayoutSidebar({
         <SheetHeader>
           <SheetTitle></SheetTitle>
         </SheetHeader>
-
-        
-
       </SheetContent>
     </Sheet>
   )
