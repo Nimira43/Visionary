@@ -1,7 +1,11 @@
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet'
 
-function PrivateLayoutSidebar({ onClose } : {
-  onClose: () => void
+function PrivateLayoutSidebar({ 
+  onClose,
+  openSidebar 
+} : {
+  onClose: () => void,
+  openSidebar: boolean
 }) {
   return (
     <Sheet
