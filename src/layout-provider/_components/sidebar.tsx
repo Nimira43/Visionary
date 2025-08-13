@@ -1,3 +1,5 @@
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet'
+
 function PrivateLayoutSidebar({ onClose } : {
   onClose: () => void
 }) {
