@@ -18,7 +18,7 @@ function PrivateLayout({children} : {
 
       if (response.success) {
         setUser(response.data)
-        toast.success('user data fetched successfully.')
+        // toast.success('user data fetched successfully.')
       } else {
         throw new Error('Error fetching user data.')
       }
