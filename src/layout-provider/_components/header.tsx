@@ -26,7 +26,8 @@ function PrivateLayoutHeader({ user } :
       </div>
       {openSidebar && (
         <PrivateLayoutSidebar 
-          onClose={setOpenSidebar(false)}
+          openSidebar={openSidebar}
+          onClose={()=> setOpenSidebar(false)}
         />
       )}
     </div>
