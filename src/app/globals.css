@@ -10,7 +10,10 @@
 
 .logo {
   font-family: 'VT323', monospace;
-  /* color: #aaf9f9; */
+}
+
+.hover-transition {
+  transition: all 0.5s ease-in-out;
 }
 
 @layer base {
