@@ -1,5 +1,5 @@
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { RiHome9Line, RiUser6Line, RiSchoolLine, RiListUnordered, RiAwardLine, RiBookShelfLine } from "react-icons/ri"
 
 function PrivateLayoutSidebar({ 
@@ -10,6 +10,8 @@ function PrivateLayoutSidebar({
   openSidebar: boolean
 }) {
   const pathname = usePathname()
+  const router = useRouter()
+
   const menuItems = [
     {
       title: 'Home',
@@ -63,6 +65,7 @@ function PrivateLayoutSidebar({
                     : ''
                 }
               `}
+              onClick={() => {}}
             >
               {item.icon}
               <span
