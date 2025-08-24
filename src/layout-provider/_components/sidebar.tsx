@@ -65,7 +65,10 @@ function PrivateLayoutSidebar({
                     : ''
                 }
               `}
-              onClick={() => {}}
+              onClick={() => {
+                router.push(item.path)
+                onClose()
+              }}
             >
               {item.icon}
               <span
