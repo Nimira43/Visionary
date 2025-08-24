@@ -51,6 +51,15 @@ function PrivateLayoutSidebar({
         <SheetHeader>
           <SheetTitle></SheetTitle>
         </SheetHeader>
+        <div className='flex flex-col gap-5'>
+          {menuItems.map((item) => (
+            <div
+              key={item.title}
+            >
+
+            </div>
+          ))}
+        </div>
       </SheetContent>
     </Sheet>
   )
