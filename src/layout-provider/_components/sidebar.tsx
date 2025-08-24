@@ -56,7 +56,13 @@ function PrivateLayoutSidebar({
           {menuItems.map((item) => (
             <div
               key={item.title}
-              className='flex gap-4 items-center font-medium hover:text-main-dark hover-transition cursor pointer'
+              className={
+                `flex gap-4 p-3 items-center font-medium hover:text-main-dark hover-transition cursor pointer ${
+                  pathname === item.path
+                    ? 'bg-main-light rounded'
+                    : ''
+                }
+              `}
             >
               {item.icon}
               <span
