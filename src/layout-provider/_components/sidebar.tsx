@@ -1,3 +1,4 @@
+import SignOutButton from '@/components/functional/sign-out-button'
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet'
 import { usePathname, useRouter } from 'next/navigation'
 import { RiHome9Line, RiUser6Line, RiSchoolLine, RiListUnordered, RiAwardLine, RiBookShelfLine } from "react-icons/ri"
@@ -78,6 +79,7 @@ function PrivateLayoutSidebar({
               </span>
             </div>
           ))}
+          <SignOutButton />
         </div>
       </SheetContent>
     </Sheet>
