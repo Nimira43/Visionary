@@ -1,4 +1,5 @@
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet'
+import { usePathname } from 'next/navigation'
 import { RiHome9Line, RiUser6Line, RiSchoolLine, RiListUnordered, RiAwardLine, RiBookShelfLine } from "react-icons/ri"
 
 function PrivateLayoutSidebar({ 
@@ -8,7 +9,7 @@ function PrivateLayoutSidebar({
   onClose: () => void,
   openSidebar: boolean
 }) {
-
+  const pathname = usePathname()
   const menuItems = [
     {
       title: 'Home',
@@ -55,7 +56,7 @@ function PrivateLayoutSidebar({
           {menuItems.map((item) => (
             <div
               key={item.title}
-              className='flex gap-4 items-center hover:text-main-dark hover-transition'
+              className='flex gap-4 items-center font-medium hover:text-main-dark hover-transition cursor pointer'
             >
               {item.icon}
               <span
