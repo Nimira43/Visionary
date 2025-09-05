@@ -4,20 +4,22 @@ import {zodResolver} from '@hookform/resolvers/zod'
 import {useForm} from 'react-hook-form'
 import { z } from 'zod'
 import { Button } from '@/components/ui/button'
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
+import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 
 function ProfilePage() {
   const formSchema = z.object({
-    profileName: z.string().min(2, {
-      message: 'Username must be at least 2 characters.',
-    })
+    name: z
+      .string()
+      .nonempty()
+      .min(3)
+      .max(50),
   })
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      profileName: '',
+      name: '',
     },
   })
 
@@ -27,7 +29,7 @@ function ProfilePage() {
 
   return (
     <div>
-      <h1 className='text-xl font-medium'>Profile Page</h1>
+      <h1 className='text-xl font-medium'>Profile</h1>
       <Form {...form}>
         <form 
           onSubmit={form.handleSubmit(onSubmit)}
@@ -35,7 +37,7 @@ function ProfilePage() {
         >
           <FormField
             control={form.control}
-            name='profileName'
+            name='name'
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Username</FormLabel>
