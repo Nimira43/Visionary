@@ -52,7 +52,7 @@ function PrivateLayout({children} : {
   return (
     <div>
       <PrivateLayoutHeader 
-        user={user!}
+        
       />
         <div className='p-5'>
           {children}

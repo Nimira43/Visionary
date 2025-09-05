@@ -3,10 +3,10 @@ import { Button } from '@/components/ui/button'
 import { useState } from 'react'
 import { TbAlignCenter } from 'react-icons/tb'
 import PrivateLayoutSidebar from './sidebar'
+import usersGlobalStore, { IUsersGlobalStore } from '@/global-store/users-store'
 
-function PrivateLayoutHeader({ user } : 
-  { user: IUser }
-) {
+function PrivateLayoutHeader() {
+  const { user } = usersGlobalStore() as IUsersGlobalStore
   const [openSidebar, setOpenSidebar] = useState(false)
   return (
     <div className='bg-main-light p-5 flex justify-between items-center'>
