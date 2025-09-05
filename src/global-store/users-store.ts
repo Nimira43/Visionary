@@ -8,3 +8,7 @@ const usersGlobalStore = create((set) => ({
 
 export default usersGlobalStore
 
+export interface IUsersGlobalStore {
+  user: IUser | null
+  setUser: (user: IUser) => void
+}
