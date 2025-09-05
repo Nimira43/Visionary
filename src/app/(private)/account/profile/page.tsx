@@ -24,12 +24,12 @@ function ProfilePage() {
     tag_line: z
       .string()
       .nonempty(),
-    bio: z
-      .string()
-      .nonempty(),
-    hero_image: z
-      .string()
-      .nonempty(),
+    // bio: z
+    //   .string()
+    //   .nonempty(),
+    // hero_image: z
+    //   .string()
+    //   .nonempty(),
   })
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -88,7 +88,7 @@ function ProfilePage() {
               </FormItem>
             )}
           />
-          <FormField
+          {/* <FormField
             control={form.control}
             name='bio'
             render={({ field }) => (
@@ -113,7 +113,7 @@ function ProfilePage() {
                 <FormMessage />
               </FormItem>
             )}
-          />
+          /> */}
           <Button type='submit'>Submit</Button>
         </form>
       </Form>
