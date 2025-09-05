@@ -21,6 +21,10 @@ function ProfilePage() {
     },
   })
 
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    console.log(values)
+  }
+
   return (
     <div>
       <h1 className='text-xl font-medium'>Profile Page</h1>
@@ -41,9 +45,8 @@ function ProfilePage() {
                 <FormDescription></FormDescription>
               </FormItem>
             )}
-          >
-            
-          </FormField>
+          />
+          <Button type='submit'>Submit</Button>
         </form>
       </Form>
     </div>
