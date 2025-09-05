@@ -1,3 +1,4 @@
+import { IUser } from '@/app/interfaces'
 import { create } from 'zustand'
 
 const usersGlobalStore = create((set) => ({
