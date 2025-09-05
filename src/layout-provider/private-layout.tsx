@@ -51,12 +51,10 @@ function PrivateLayout({children} : {
 
   return (
     <div>
-      <PrivateLayoutHeader 
-        
-      />
-        <div className='p-5'>
-          {children}
-        </div>
+      <PrivateLayoutHeader />
+      <div className='p-5'>
+        {children}
+      </div>
     </div>
   )
 }
