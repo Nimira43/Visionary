@@ -75,6 +75,19 @@ function ProfilePage() {
               </FormItem>
             )}
           />
+          <FormField
+            control={form.control}
+            name='tag_line'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Tag Line</FormLabel>
+                <FormControl>
+                  <Input {...field}/>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
           <Button type='submit'>Submit</Button>
         </form>
       </Form>
