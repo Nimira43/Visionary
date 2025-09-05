@@ -16,7 +16,18 @@ function ProfilePage() {
 
   return (
     <div>
-      Profile Page
+      <h1 className='text-xl font-medium'>Profile Page</h1>
+      <Form>
+        <FormField>
+          <FormItem>
+            <FormLabel></FormLabel>
+            <FormControl>
+              <Input />
+            </FormControl>
+            <FormDescription></FormDescription>
+          </FormItem>
+        </FormField>
+      </Form>
     </div>
   )
 }
