@@ -25,6 +25,9 @@ function ProfilePage() {
     bio: z
       .string()
       .nonempty(),
+    hero_image: z
+      .string()
+      .nonempty(),
   })
 
   const form = useForm<z.infer<typeof formSchema>>({
