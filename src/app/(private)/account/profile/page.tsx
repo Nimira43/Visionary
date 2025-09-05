@@ -4,7 +4,7 @@ import {zodResolver} from '@hookform/resolvers/zod'
 import {useForm} from 'react-hook-form'
 import { z } from 'zod'
 import { Button } from '@/components/ui/button'
-import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form'
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import usersGlobalStore, { IUsersGlobalStore } from '@/global-store/users-store'
 
@@ -34,7 +34,7 @@ function ProfilePage() {
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: user
+    defaultValues: user!
   })
 
   function onSubmit(values: z.infer<typeof formSchema>) {
@@ -54,10 +54,24 @@ function ProfilePage() {
             name='name'
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Username</FormLabel>
+                <FormLabel>Name</FormLabel>
                 <FormControl>
                   <Input {...field}/>
                 </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name='title'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Title</FormLabel>
+                <FormControl>
+                  <Input {...field}/>
+                </FormControl>
+                <FormMessage />
               </FormItem>
             )}
           />
