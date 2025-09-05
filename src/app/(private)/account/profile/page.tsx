@@ -8,6 +8,12 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { Input } from '@/components/ui/input'
 
 function ProfilePage() {
+  const formSchema = z.object({
+    usernaame: z.string().min(2, {
+      message: 'Username must be at least 2 characters.',
+    })
+  })
+
   return (
     <div>
       Profile Page
