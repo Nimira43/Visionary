@@ -6,8 +6,10 @@ import { z } from 'zod'
 import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import usersGlobalStore, { IUsersGlobalStore } from '@/global-store/users-store'
 
 function ProfilePage() {
+  const {user} = usersGlobalStore() as IUsersGlobalStore
   const formSchema = z.object({
     name: z
       .string()
@@ -32,9 +34,7 @@ function ProfilePage() {
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: '',
-    },
+    defaultValues: user
   })
 
   function onSubmit(values: z.infer<typeof formSchema>) {
