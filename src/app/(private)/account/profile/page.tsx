@@ -14,6 +14,11 @@ function ProfilePage() {
       .nonempty()
       .min(3)
       .max(50),
+    title: z
+      .string()
+      .nonempty()
+      .min(3)
+      .max(50),
   })
 
   const form = useForm<z.infer<typeof formSchema>>({
