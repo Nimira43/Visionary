@@ -24,16 +24,27 @@ function ProfilePage() {
   return (
     <div>
       <h1 className='text-xl font-medium'>Profile Page</h1>
-      <Form>
-        <FormField>
-          <FormItem>
-            <FormLabel></FormLabel>
-            <FormControl>
-              <Input />
-            </FormControl>
-            <FormDescription></FormDescription>
-          </FormItem>
-        </FormField>
+      <Form {...form}>
+        <form 
+          onSubmit={form.handleSubmit(onSubmit)}
+          className='space-y-8'
+        >
+          <FormField
+            control={form.control}
+            name='username'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel></FormLabel>
+                <FormControl>
+                  <Input />
+                </FormControl>
+                <FormDescription></FormDescription>
+              </FormItem>
+            )}
+          >
+            
+          </FormField>
+        </form>
       </Form>
     </div>
   )
