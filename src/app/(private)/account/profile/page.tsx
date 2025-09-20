@@ -42,7 +42,13 @@ function ProfilePage() {
     console.log(values)
   }
 
-  const heroImagePreview = useMemo(() => {})
+  const heroImagePreview = useMemo(() => {
+    if (selectedFile) {
+      return URL.createObjectURL(selectedFile)
+    }
+
+    return user?.hero_image || ''
+  }, [selectedFile])
 
   return (
     <div>
@@ -130,6 +136,15 @@ function ProfilePage() {
               </FormItem>
             )}
           />
+          {heroImagePreview && (
+            <div>
+              <img 
+                src={heroImagePreview}
+                alt='Hero Image'
+                className='w-32 h-32'
+              />
+            </div>
+          )}
           <Button type='submit'>Submit</Button>
         </form>
       </Form>
