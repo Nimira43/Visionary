@@ -25,9 +25,9 @@ function ProfilePage() {
     tag_line: z
       .string()
       .nonempty(),
-    // bio: z
-    //   .string()
-    //   .nonempty(),
+    bio: z
+      .string()
+      .nonempty(),
     // hero_image: z
     //   .string()
     //   .nonempty(),
@@ -89,7 +89,7 @@ function ProfilePage() {
               </FormItem>
             )}
           />
-          {/* <FormField
+          <FormField
             control={form.control}
             name='bio'
             render={({ field }) => (
@@ -102,7 +102,7 @@ function ProfilePage() {
               </FormItem>
             )}
           />
-          <FormField
+          {/* <FormField
             control={form.control}
             name='hero_image'
             render={({ field }) => (
