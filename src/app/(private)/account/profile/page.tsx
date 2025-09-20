@@ -130,6 +130,7 @@ function ProfilePage() {
                         setSelectedFile(e.target.files![0])
                       }
                     }
+                    className='w-max'
                   />
                 </FormControl>
                 <FormMessage />
@@ -137,11 +138,11 @@ function ProfilePage() {
             )}
           />
           {heroImagePreview && (
-            <div>
+            <div className='p-2 '>
               <img 
                 src={heroImagePreview}
                 alt='Hero Image'
-                className='w-32 h-32'
+                className='w-32 h-32 m-max'
               />
             </div>
           )}
