@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import usersGlobalStore, { IUsersGlobalStore } from '@/global-store/users-store'
+import Editor from 'react-simple-wysiwyg'
 
 function ProfilePage() {
   const {user} = usersGlobalStore() as IUsersGlobalStore
