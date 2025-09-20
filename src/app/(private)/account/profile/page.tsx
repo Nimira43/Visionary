@@ -96,7 +96,12 @@ function ProfilePage() {
               <FormItem>
                 <FormLabel>Bio</FormLabel>
                 <FormControl>
-                  <Input {...field} />
+                  <Editor
+                    value={field.value}
+                    onChange={
+                      (e) => form.setValue('bio', e.target.value)
+                    }
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
