@@ -115,7 +115,14 @@ function ProfilePage() {
               <FormItem>
                 <FormLabel>Upload Image</FormLabel>
                 <FormControl>
-                  <Input {...field} />
+                  <Input 
+                    type='file'
+                    onChange={
+                      (e) => {
+                        setSelectedFile(e.target.files![0])
+                      }
+                    }
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
