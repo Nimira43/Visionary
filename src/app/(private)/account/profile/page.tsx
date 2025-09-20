@@ -8,7 +8,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input'
 import usersGlobalStore, { IUsersGlobalStore } from '@/global-store/users-store'
 import Editor from 'react-simple-wysiwyg'
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 
 function ProfilePage() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
@@ -41,6 +41,8 @@ function ProfilePage() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values)
   }
+
+  const heroImagePreview = useMemo(() => {})
 
   return (
     <div>
