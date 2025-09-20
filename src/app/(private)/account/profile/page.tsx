@@ -35,7 +35,13 @@ function ProfilePage() {
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: user!
+    defaultValues: {
+      name: user?.name || '',
+      title: user?.title || '',
+      tag_line: user?.tag_line || '',
+      bio: user?.bio || '',
+      hero_image: user?.hero_image || '',
+    }
   })
 
   function onSubmit(values: z.infer<typeof formSchema>) {
