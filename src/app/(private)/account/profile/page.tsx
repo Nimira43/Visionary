@@ -8,8 +8,10 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input'
 import usersGlobalStore, { IUsersGlobalStore } from '@/global-store/users-store'
 import Editor from 'react-simple-wysiwyg'
+import { useState } from 'react'
 
 function ProfilePage() {
+  const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const {user} = usersGlobalStore() as IUsersGlobalStore
   const formSchema = z.object({
     name: z
@@ -101,6 +103,7 @@ function ProfilePage() {
                     onChange={
                       (e) => form.setValue('bio', e.target.value)
                     }
+                    className='text-sm'
                   />
                 </FormControl>
                 <FormMessage />
