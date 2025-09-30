@@ -11,10 +11,10 @@ export const uploadFileAndGetUrl = async (file: File) => {
       throw new Error(error.message)
     }
 
-    const url = supabase.storage
+    const response = supabase.storage
       .from('basic')
       .getPublicUrl(filename)
-    return url
+    return response.data.publicUrl
   } catch (error: any) {
     throw new Error(error)
   }
