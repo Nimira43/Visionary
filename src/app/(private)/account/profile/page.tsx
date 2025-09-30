@@ -13,7 +13,9 @@ import toast from 'react-hot-toast'
 
 function ProfilePage() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
+  const [loading, setLoading] = useState(false)
   const {user} = usersGlobalStore() as IUsersGlobalStore
+
   const formSchema = z.object({
     name: z
       .string()
