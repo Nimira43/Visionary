@@ -49,9 +49,11 @@ function ProfilePage() {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      
+      setLoading(true)
     } catch (error: any) {
       toast.error(error.message)
+    } finally {
+      setLoading(false)
     }
   }
 
