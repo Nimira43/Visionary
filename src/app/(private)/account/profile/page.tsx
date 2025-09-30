@@ -16,7 +16,7 @@ import { updateCurrentUser } from '@/actions/users'
 function ProfilePage() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [loading, setLoading] = useState(false)
-  const {user} = usersGlobalStore() as IUsersGlobalStore
+  const {user, setUser} = usersGlobalStore() as IUsersGlobalStore
 
   const formSchema = z.object({
     name: z
@@ -58,15 +58,17 @@ function ProfilePage() {
         payload.hero_image = await uploadFileAndGetUrl(selectedFile)
       }
       
-      const response = await updateCurrentUser({
+      const response: any = await updateCurrentUser({
         ...payload,
         id: user?.id
       })
 
       if (response.success) {
-        toast.success('Profile updated successfully')
+        toast.success('Profile updated successfully.')
+        setUser(response.data)
+      } else {
+        toast.error(response.error)
       }
-
     } catch (error: any) {
       toast.error(error.message)
     } finally {
