@@ -2,7 +2,10 @@ import supabase from '@/config/supabase-db-config'
 
 export const uploadFileAndGetUrl = async (file: File) => {
   try {
-    const { data, error } = await supabase.storage.from('basic').upload(`${file.name}`, file) 
+    const filename = `${Date.now()}-${file.name}`
+    const { data, error } = await supabase.storage.from('basic').upload(filename, file) 
+
+    const url = supabase.storage.from('basic').getPublicUrl(filename)
   } catch (error: any) {
     throw new Error(error)
   }
