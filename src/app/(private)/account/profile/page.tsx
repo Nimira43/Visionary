@@ -10,6 +10,7 @@ import usersGlobalStore, { IUsersGlobalStore } from '@/global-store/users-store'
 import Editor from 'react-simple-wysiwyg'
 import { useMemo, useState } from 'react'
 import toast from 'react-hot-toast'
+import { uploadFileAndGetUrl } from '@/helpers/uploads'
 
 function ProfilePage() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
@@ -47,9 +48,15 @@ function ProfilePage() {
     }
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       setLoading(true)
+      const payload : any = {...values}
+
+      if (selectedFile) {
+        payload.hero_image = await uploadFileAndGetUrl(selectedFile)
+      }
+
     } catch (error: any) {
       toast.error(error.message)
     } finally {
