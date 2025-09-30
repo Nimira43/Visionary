@@ -51,12 +51,12 @@ function ProfilePage() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       setLoading(true)
-      const payload : any = {...values}
+      const payload: any = {...values}
 
       if (selectedFile) {
         payload.hero_image = await uploadFileAndGetUrl(selectedFile)
       }
-
+      console.log(payload)
     } catch (error: any) {
       toast.error(error.message)
     } finally {
