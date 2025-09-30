@@ -76,11 +76,19 @@ export const updateCurrentUser = async (userData: any) => {
       .from('user_profiles')
       .update(userData)
       .eq('id', userData.id)    
+    
+    if (error) {
+      throw new Error('Error updating user data.')
+    }
+
+    return {
+      success: true,
+      data: data
+    }
   } catch (error: any) {
     return {
       success: false,
       error: error.message
-    }
-    
+    }  
   }
 }
