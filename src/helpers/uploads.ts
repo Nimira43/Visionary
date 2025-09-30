@@ -1,0 +1,1 @@
+export const uploadFileAndGetUrl = async (file: File) => {}
