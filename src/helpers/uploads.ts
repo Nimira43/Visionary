@@ -7,6 +7,10 @@ export const uploadFileAndGetUrl = async (file: File) => {
       .from('basic')
       .upload(filename, file) 
 
+    if (error) {
+      throw new Error(error.message)
+    }
+
     const url = supabase.storage
       .from('basic')
       .getPublicUrl(filename)
