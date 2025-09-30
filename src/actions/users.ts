@@ -69,3 +69,5 @@ export const getCurrentUser = async () => {
     }
   }
 }
+
+export const updateCurrentUser = async (userData: any) => {}
