@@ -63,6 +63,10 @@ function ProfilePage() {
         id: user?.id
       })
 
+      if (response.success) {
+        toast.success('Profile updated successfully')
+      }
+
     } catch (error: any) {
       toast.error(error.message)
     } finally {
