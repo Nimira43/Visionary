@@ -11,6 +11,7 @@ import Editor from 'react-simple-wysiwyg'
 import { useMemo, useState } from 'react'
 import toast from 'react-hot-toast'
 import { uploadFileAndGetUrl } from '@/helpers/uploads'
+import { updateCurrentUser } from '@/actions/users'
 
 function ProfilePage() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
@@ -56,7 +57,12 @@ function ProfilePage() {
       if (selectedFile) {
         payload.hero_image = await uploadFileAndGetUrl(selectedFile)
       }
-      console.log(payload)
+      
+      const response = await updateCurrentUser({
+        ...payload,
+        id: user?.id
+      })
+
     } catch (error: any) {
       toast.error(error.message)
     } finally {
