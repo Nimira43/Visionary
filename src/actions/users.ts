@@ -70,4 +70,17 @@ export const getCurrentUser = async () => {
   }
 }
 
-export const updateCurrentUser = async (userData: any) => {}
+export const updateCurrentUser = async (userData: any) => {
+  try {
+    const { error, data } = await supabase
+      .from('user_profiles')
+      .update(userData)
+      .eq('id', userData.id)    
+  } catch (error: any) {
+    return {
+      success: false,
+      error: error.message
+    }
+    
+  }
+}
