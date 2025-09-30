@@ -16,7 +16,7 @@ import { updateCurrentUser } from '@/actions/users'
 function ProfilePage() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [loading, setLoading] = useState(false)
-  const {user, setUser} = usersGlobalStore() as IUsersGlobalStore
+  const {user} = usersGlobalStore() as IUsersGlobalStore
 
   const formSchema = z.object({
     name: z
@@ -65,7 +65,6 @@ function ProfilePage() {
 
       if (response.success) {
         toast.success('Profile updated successfully.')
-        setUser(response.data)
       } else {
         toast.error(response.error)
       }
