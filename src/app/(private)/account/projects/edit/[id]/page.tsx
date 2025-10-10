@@ -7,7 +7,7 @@ interface IEditProjectPageProps {
   }
 }
 
-function EditProjectPage() {
+function EditProjectPage({ params } : IEditProjectPageProps) {
   return (
     <div className='flex justify-center items-start min-h-screen p-4'>
       <div className='w-full max-w-2xl'>
