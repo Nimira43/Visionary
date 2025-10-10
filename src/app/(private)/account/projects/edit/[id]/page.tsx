@@ -1,6 +1,12 @@
 import React from 'react'
 import ProjectForm from '../../_components/project-form'
 
+interface IEditProjectPageProps {
+  params : {
+    id: string
+  }
+}
+
 function EditProjectPage() {
   return (
     <div className='flex justify-center items-start min-h-screen p-4'>
