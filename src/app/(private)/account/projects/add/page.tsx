@@ -3,7 +3,7 @@ import React from 'react'
 function AddProjectPage() {
   return (
     <div>
-      Add Project Page
+      <h1 className='text-xl font-medium'>Add Project</h1>
     </div>
   )
 }
