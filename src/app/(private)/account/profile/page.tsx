@@ -182,6 +182,7 @@ function ProfilePage() {
           )}
           <div className='flex justify-center gap-5 '>
             <Button 
+              disabled={loading}
               type='submit'
               className='w-full uppercase '
             >
