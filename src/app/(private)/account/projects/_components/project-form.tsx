@@ -122,10 +122,10 @@ function ProjectForm({
           />
           <FormField
             control={form.control}
-            name='tag_line'
+            name='tech_stack'
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Tag Line</FormLabel>
+                <FormLabel>Tech Stack</FormLabel>
                 <FormControl>
                   <Input {...field} />
                 </FormControl>
