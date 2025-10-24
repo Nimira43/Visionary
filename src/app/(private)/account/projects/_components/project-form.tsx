@@ -93,7 +93,7 @@ function ProjectForm({
         <Form {...form}>
           <form 
             onSubmit={form.handleSubmit(onSubmit)}
-            className='space-y-8'
+            className='space-y-8 mt-5'
           >
             <FormField
               control={form.control}
@@ -199,6 +199,7 @@ function ProjectForm({
                 disabled={loading}
                 variant='outline'
                 onClick={() => router.back()}
+                type='button'
                 className='w-full uppercase '
               >
                 Cancel
