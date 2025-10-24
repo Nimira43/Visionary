@@ -84,8 +84,8 @@ function ProfilePage() {
   }, [selectedFile])
 
   return (
-    <div className="flex justify-center items-start min-h-screen p-4">
-      <div className="w-full max-w-2xl">
+    <div className='flex justify-center items-start min-h-screen p-4'>
+      <div className='w-full max-w-2xl'>
       <h1 className='text-2xl text-main-dark font-medium mb-4 uppercase text-center'>Profile</h1>
       <Form {...form}>
         <form 
