@@ -132,6 +132,10 @@ function ProjectForm({
                 </FormItem>
               )}
             />
+
+            <div className='grid grid-cols-2 gap-5'>
+
+            </div>
             
             <FormField
               control={form.control}
