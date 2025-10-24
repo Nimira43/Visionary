@@ -136,10 +136,10 @@ function ProjectForm({
             <div className='grid grid-cols-2 gap-5'>
               <FormField
                 control={form.control}
-                name='tech_stack'
+                name='demo_link'
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Tech Stack</FormLabel>
+                    <FormLabel>Demo Link</FormLabel>
                     <FormControl>
                       <Input {...field} />
                     </FormControl>
@@ -149,10 +149,10 @@ function ProjectForm({
               />
               <FormField
                 control={form.control}
-                name='tech_stack'
+                name='repo_link'
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Tech Stack</FormLabel>
+                    <FormLabel>Repo Link</FormLabel>
                     <FormControl>
                       <Input {...field} />
                     </FormControl>
