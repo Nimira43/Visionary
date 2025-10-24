@@ -133,31 +133,13 @@ function ProjectForm({
               </FormItem>
             )}
           />
+          
           <FormField
             control={form.control}
-            name='bio'
+            name='image'
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Bio</FormLabel>
-                <FormControl>
-                  <Editor
-                    value={field.value}
-                    onChange={
-                      (e) => form.setValue('bio', e.target.value)
-                    }
-                    className='text-sm'
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name='hero_image'
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Upload Image</FormLabel>
+                <FormLabel>Upload Project Image</FormLabel>
                 <FormControl>
                   <Input 
                     type='file'
