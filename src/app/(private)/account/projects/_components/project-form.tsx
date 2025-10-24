@@ -13,6 +13,7 @@ import toast from 'react-hot-toast'
 import { uploadFileAndGetUrl } from '@/helpers/uploads'
 import { updateCurrentUser } from '@/actions/users'
 import { Textarea } from '@/components/ui/textarea'
+import { useRouter } from 'next/navigation'
 
 interface IProjectFormProps {
   formType ? : 'add' | 'edit'
@@ -23,6 +24,7 @@ function ProjectForm({
   formType='add', 
   initialValues={}
 }: IProjectFormProps) {
+  const router = useRouter()
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [loading, setLoading] = useState(false)
   const {user} = usersGlobalStore() as IUsersGlobalStore
@@ -196,7 +198,7 @@ function ProjectForm({
               <Button 
                 disabled={loading}
                 variant='outline'
-                onClick={() => form.reset()}
+                onClick={() => router.back()}
                 className='w-full uppercase '
               >
                 Cancel
