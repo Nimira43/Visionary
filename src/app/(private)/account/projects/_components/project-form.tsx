@@ -66,7 +66,7 @@ function ProjectForm({
       const payload: any = {...values}
 
       if (selectedFile) {
-        payload.hero_image = await uploadFileAndGetUrl(selectedFile)
+        payload.image = await uploadFileAndGetUrl(selectedFile)
       }
     } catch (error: any) {
       toast.error(error.message)
@@ -75,12 +75,12 @@ function ProjectForm({
     }
   }
 
-  const heroImagePreview = useMemo(() => {
+  const projectImagePreview = useMemo(() => {
     if (selectedFile) {
       return URL.createObjectURL(selectedFile)
     }
 
-    return user?.hero_image || ''
+    return initialValues?.image || ''
   }, [selectedFile])
 
 
