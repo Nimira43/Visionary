@@ -134,7 +134,32 @@ function ProjectForm({
             />
 
             <div className='grid grid-cols-2 gap-5'>
-
+              <FormField
+                control={form.control}
+                name='tech_stack'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Tech Stack</FormLabel>
+                    <FormControl>
+                      <Input {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name='tech_stack'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Tech Stack</FormLabel>
+                    <FormControl>
+                      <Input {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
             </div>
             
             <FormField
