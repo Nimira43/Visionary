@@ -51,11 +51,12 @@ function ProjectForm({
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: user?.name || '',
-      title: user?.title || '',
-      tag_line: user?.tag_line || '',
-      bio: user?.bio || '',
-      hero_image: user?.hero_image || '',
+      name: initialValues?.name || '',
+      description: initialValues?.description || '',
+      demo_link: initialValues?.demo_link || '',
+      repo_link: initialValues?.repo_link || '',
+      tech_stack: initialValues?.tech_stack || '',
+      image: initialValues?.image || '',
     }
   })
 
