@@ -88,93 +88,92 @@ function ProjectForm({
   return (
     <div className='flex justify-center items-start min-h-screen p-4'>
       <div className='w-full max-w-2xl'>
-      <h1 className='text-2xl text-main-dark font-medium mb-4 uppercase text-center'>Project</h1>
-      <Form {...form}>
-        <form 
-          onSubmit={form.handleSubmit(onSubmit)}
-          className='space-y-8'
-        >
-          <FormField
-            control={form.control}
-            name='name'
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Name</FormLabel>
-                <FormControl>
-                  <Input {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name='description'
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Description</FormLabel>
-                <FormControl>
-                  <Textarea {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name='tech_stack'
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Tech Stack</FormLabel>
-                <FormControl>
-                  <Input {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          
-          <FormField
-            control={form.control}
-            name='image'
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Upload Project Image</FormLabel>
-                <FormControl>
-                  <Input 
-                    type='file'
-                    onChange={
-                      (e) => {
-                        setSelectedFile(e.target.files![0])
+        <Form {...form}>
+          <form 
+            onSubmit={form.handleSubmit(onSubmit)}
+            className='space-y-8'
+          >
+            <FormField
+              control={form.control}
+              name='name'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Name</FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name='description'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Description</FormLabel>
+                  <FormControl>
+                    <Textarea {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name='tech_stack'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Tech Stack</FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            
+            <FormField
+              control={form.control}
+              name='image'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Upload Project Image</FormLabel>
+                  <FormControl>
+                    <Input 
+                      type='file'
+                      onChange={
+                        (e) => {
+                          setSelectedFile(e.target.files![0])
+                        }
                       }
-                    }
-                    className='w-max'
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
+                      className='w-max'
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            {projectImagePreview && (
+              <div className='p-2 '>
+                <img 
+                  src=''
+                  alt='Hero Image'
+                  className='w-32 h-32 m-max'
+                />
+              </div>
             )}
-          />
-          {heroImagePreview && (
-            <div className='p-2 '>
-              <img 
-                src={heroImagePreview}
-                alt='Hero Image'
-                className='w-32 h-32 m-max'
-              />
+            <div className='flex justify-center gap-5 '>
+              <Button 
+                disabled={loading}
+                type='submit'
+                className='w-full uppercase '
+              >
+                Submit
+              </Button>
             </div>
-          )}
-          <div className='flex justify-center gap-5 '>
-            <Button 
-              disabled={loading}
-              type='submit'
-              className='w-full uppercase '
-            >
-              Submit
-            </Button>
-          </div>
-        </form>
-      </Form>
+          </form>
+        </Form>
       </div>
     </div>
   )
