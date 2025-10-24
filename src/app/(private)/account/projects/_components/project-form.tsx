@@ -18,7 +18,10 @@ interface IProjectFormProps {
   initialValues ? : any
 }
 
-function ProjectForm({formType='add', initialValues={} }: IProjectFormProps) {
+function ProjectForm({
+  formType='add', 
+  initialValues={}
+}: IProjectFormProps) {
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [loading, setLoading] = useState(false)
   const {user} = usersGlobalStore() as IUsersGlobalStore
@@ -29,18 +32,20 @@ function ProjectForm({formType='add', initialValues={} }: IProjectFormProps) {
       .nonempty()
       .min(3)
       .max(50),
-    title: z
-      .string()
-      .nonempty()
-      .min(3)
-      .max(50),
-    tag_line: z
+    description: z
       .string()
       .nonempty(),
-    bio: z
-      .string(),
-    hero_image: z
+    demo_link: z
       .string()
+      .nonempty(),
+    repo_link: z
+      .string()
+      .nonempty(),
+    tech_stack: z
+      .string()
+      .nonempty(),
+    image: z
+      .string(),
   })
 
   const form = useForm<z.infer<typeof formSchema>>({
