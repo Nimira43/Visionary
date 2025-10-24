@@ -68,17 +68,6 @@ function ProjectForm({
       if (selectedFile) {
         payload.hero_image = await uploadFileAndGetUrl(selectedFile)
       }
-      
-      const response: any = await updateCurrentUser({
-        ...payload,
-        id: user?.id
-      })
-
-      if (response.success) {
-        toast.success('Profile updated successfully.')
-      } else {
-        toast.error(response.error)
-      }
     } catch (error: any) {
       toast.error(error.message)
     } finally {
