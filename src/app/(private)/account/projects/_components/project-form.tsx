@@ -12,6 +12,7 @@ import { useMemo, useState } from 'react'
 import toast from 'react-hot-toast'
 import { uploadFileAndGetUrl } from '@/helpers/uploads'
 import { updateCurrentUser } from '@/actions/users'
+import { Textarea } from '@/components/ui/textarea'
 
 interface IProjectFormProps {
   formType ? : 'add' | 'edit'
@@ -87,7 +88,7 @@ function ProjectForm({
   return (
     <div className='flex justify-center items-start min-h-screen p-4'>
       <div className='w-full max-w-2xl'>
-      <h1 className='text-2xl text-main-dark font-medium mb-4 uppercase text-center'>Profile</h1>
+      <h1 className='text-2xl text-main-dark font-medium mb-4 uppercase text-center'>Project</h1>
       <Form {...form}>
         <form 
           onSubmit={form.handleSubmit(onSubmit)}
@@ -108,12 +109,12 @@ function ProjectForm({
           />
           <FormField
             control={form.control}
-            name='title'
+            name='description'
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Title</FormLabel>
+                <FormLabel>Description</FormLabel>
                 <FormControl>
-                  <Input {...field} />
+                  <Textarea {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
