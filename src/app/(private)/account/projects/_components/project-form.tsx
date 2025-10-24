@@ -1,4 +1,17 @@
-import React from 'react'
+'use client'
+
+import {zodResolver} from '@hookform/resolvers/zod'
+import {useForm} from 'react-hook-form'
+import { z } from 'zod'
+import { Button } from '@/components/ui/button'
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import usersGlobalStore, { IUsersGlobalStore } from '@/global-store/users-store'
+import Editor from 'react-simple-wysiwyg'
+import { useMemo, useState } from 'react'
+import toast from 'react-hot-toast'
+import { uploadFileAndGetUrl } from '@/helpers/uploads'
+import { updateCurrentUser } from '@/actions/users'
 
 interface IProjectFormProps {
   formType ? : 'add' | 'edit'
@@ -6,6 +19,76 @@ interface IProjectFormProps {
 }
 
 function ProjectForm({formType='add', initialValues={} }: IProjectFormProps) {
+  const [selectedFile, setSelectedFile] = useState<File | null>(null)
+  const [loading, setLoading] = useState(false)
+  const {user} = usersGlobalStore() as IUsersGlobalStore
+
+  const formSchema = z.object({
+    name: z
+      .string()
+      .nonempty()
+      .min(3)
+      .max(50),
+    title: z
+      .string()
+      .nonempty()
+      .min(3)
+      .max(50),
+    tag_line: z
+      .string()
+      .nonempty(),
+    bio: z
+      .string(),
+    hero_image: z
+      .string()
+  })
+
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: user?.name || '',
+      title: user?.title || '',
+      tag_line: user?.tag_line || '',
+      bio: user?.bio || '',
+      hero_image: user?.hero_image || '',
+    }
+  })
+
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      setLoading(true)
+      const payload: any = {...values}
+
+      if (selectedFile) {
+        payload.hero_image = await uploadFileAndGetUrl(selectedFile)
+      }
+      
+      const response: any = await updateCurrentUser({
+        ...payload,
+        id: user?.id
+      })
+
+      if (response.success) {
+        toast.success('Profile updated successfully.')
+      } else {
+        toast.error(response.error)
+      }
+    } catch (error: any) {
+      toast.error(error.message)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const heroImagePreview = useMemo(() => {
+    if (selectedFile) {
+      return URL.createObjectURL(selectedFile)
+    }
+
+    return user?.hero_image || ''
+  }, [selectedFile])
+
+
   return (
     <div className='flex justify-center items-start min-h-screen p-4'>
       <div className='w-full max-w-2xl'>
