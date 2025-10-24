@@ -195,6 +195,14 @@ function ProjectForm({
             <div className='flex justify-center gap-5 '>
               <Button 
                 disabled={loading}
+                variant='outline'
+                onClick={() => form.reset()}
+                className='w-full uppercase '
+              >
+                Cancel
+              </Button>
+              <Button 
+                disabled={loading}
                 type='submit'
                 className='w-full uppercase '
               >
