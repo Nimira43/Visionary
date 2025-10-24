@@ -186,8 +186,8 @@ function ProjectForm({
             {projectImagePreview && (
               <div className='p-2 '>
                 <img 
-                  src=''
-                  alt='Hero Image'
+                  src={projectImagePreview}
+                  alt='Project Image'
                   className='w-32 h-32 m-max'
                 />
               </div>
