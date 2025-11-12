@@ -4,8 +4,10 @@ import supabase from '@/config/supabase-db-config'
 
 export const addNewProject = async (payload: any) => {
   try {
-    const {data, error} = await supabase.from('projects').insert(payload)
-
+    const {data, error} = await supabase
+      .from('projects')
+      .insert(payload)
+      
     if (error) throw new Error(error.message)
 
     return {
@@ -22,7 +24,10 @@ export const addNewProject = async (payload: any) => {
 
 export const editProjectById = async (id:string, payload:any) => {
   try {
-    const {data, error} = await supabase.from('projects').update(payload).match({ id })
+    const {data, error} = await supabase
+      .from('projects')
+      .update(payload)
+      .match({ id })
 
     if (error) throw new Error(error.message)
 
