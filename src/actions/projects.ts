@@ -8,16 +8,18 @@ export const addNewProject = async (payload: any) => {
       .from('projects')
       .insert(payload)
       
+      
     if (error) throw new Error(error.message)
 
     return {
       success:  true,
-      data
+      data,
+      message: 'Project added successfully'
     }
   } catch (error: any) {
     return {
       success: false,
-      error: error.message
+      message: error.message
     }
   }
 }
@@ -33,12 +35,13 @@ export const editProjectById = async (id:string, payload:any) => {
 
     return {
       success:  true,
-      data
+      data,
+      message: 'Project updated successfully'
     }
   } catch (error: any) {
     return {
       success: false,
-      error: error.message
+      message: error.message
     }
   }
 }
