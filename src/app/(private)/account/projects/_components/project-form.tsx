@@ -84,6 +84,8 @@ function ProjectForm({
       if (response.success) {
         toast.success('Project saved successfully')
         router.push('/account/projects')
+      } else {
+        toast.error(response.error)
       }
 
     } catch (error: any) {
