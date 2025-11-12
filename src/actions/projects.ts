@@ -25,6 +25,9 @@ export const editProjectById = async (id:string, payload:any) => {
   try {
     
   } catch (error: any) {
-    
+    return {
+      success: false,
+      error: error.message
+    }
   }
 }
