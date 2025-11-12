@@ -12,6 +12,7 @@ import { uploadFileAndGetUrl } from '@/helpers/uploads'
 import { Textarea } from '@/components/ui/textarea'
 import { useRouter } from 'next/navigation'
 import { addNewProject, editProjectById } from '@/actions/projects'
+import usersGlobalStore, { IUsersGlobalStore } from '@/global-store/users-store'
 
 interface IProjectFormProps {
   formType ? : 'add' | 'edit'
@@ -25,6 +26,7 @@ function ProjectForm({
   const router = useRouter()
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [loading, setLoading] = useState(false)
+  const { user } = usersGlobalStore() as IUsersGlobalStore
 
   const formSchema = z.object({
     name: z
