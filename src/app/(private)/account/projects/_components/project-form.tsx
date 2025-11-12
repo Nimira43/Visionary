@@ -14,7 +14,7 @@ import { uploadFileAndGetUrl } from '@/helpers/uploads'
 import { updateCurrentUser } from '@/actions/users'
 import { Textarea } from '@/components/ui/textarea'
 import { useRouter } from 'next/navigation'
-import { addNewProject } from '@/actions/projects'
+import { addNewProject, editProjectById } from '@/actions/projects'
 
 interface IProjectFormProps {
   formType ? : 'add' | 'edit'
@@ -77,7 +77,9 @@ function ProjectForm({
 
       if (formType === 'add') {
         response = await addNewProject(payload)
-      } else {}
+      } else {
+        response = await editProjectById(initialValues.id, payload)
+      }
 
     } catch (error: any) {
       toast.error(error.message)
