@@ -71,6 +71,7 @@ function ProjectForm({
         payload.image = await uploadFileAndGetUrl(selectedFile)
       }
 
+      payload.user_id = user?.id
       let response: any = null
 
       if (formType === 'add') {

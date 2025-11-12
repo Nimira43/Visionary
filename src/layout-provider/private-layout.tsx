@@ -30,7 +30,9 @@ function PrivateLayout({children} : {
   }
 
   useEffect(() => {
-    fetchUser()
+    if (!user) {
+      fetchUser()
+    }
   }, [])
 
   if (loading) {
