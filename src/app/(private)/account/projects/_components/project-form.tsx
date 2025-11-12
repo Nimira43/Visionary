@@ -73,7 +73,7 @@ function ProjectForm({
         payload.image = await uploadFileAndGetUrl(selectedFile)
       }
 
-      let response = null
+      let response: any = null
 
       if (formType === 'add') {
         response = await addNewProject(payload)
@@ -82,7 +82,7 @@ function ProjectForm({
       }
 
       if (response.success) {
-        toast.success('Project saved successfully')
+        toast.success(response.message)
         router.push('/account/projects')
       } else {
         toast.error(response.error)
