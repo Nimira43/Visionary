@@ -23,7 +23,7 @@ export const addNewProject = async (payload: any) => {
 
 export const editProjectById = async (id:string, payload:any) => {
   try {
-    
+    const {data, error} = await supabase.from('projects').update(payload).match({ id })
   } catch (error: any) {
     return {
       success: false,
