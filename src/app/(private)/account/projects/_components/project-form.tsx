@@ -81,6 +81,11 @@ function ProjectForm({
         response = await editProjectById(initialValues.id, payload)
       }
 
+      if (response.success) {
+        toast.success('Project saved successfully')
+        router.push('/account/projects')
+      }
+
     } catch (error: any) {
       toast.error(error.message)
     } finally {
