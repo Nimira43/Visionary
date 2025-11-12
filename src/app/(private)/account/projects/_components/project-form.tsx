@@ -71,6 +71,13 @@ function ProjectForm({
       if (selectedFile) {
         payload.image = await uploadFileAndGetUrl(selectedFile)
       }
+
+      let response = null
+
+      if (formType === 'add') {
+        
+      }
+
     } catch (error: any) {
       toast.error(error.message)
     } finally {
