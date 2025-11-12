@@ -6,12 +6,9 @@ import { z } from 'zod'
 import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import usersGlobalStore, { IUsersGlobalStore } from '@/global-store/users-store'
-import Editor from 'react-simple-wysiwyg'
 import { useMemo, useState } from 'react'
 import toast from 'react-hot-toast'
 import { uploadFileAndGetUrl } from '@/helpers/uploads'
-import { updateCurrentUser } from '@/actions/users'
 import { Textarea } from '@/components/ui/textarea'
 import { useRouter } from 'next/navigation'
 import { addNewProject, editProjectById } from '@/actions/projects'
@@ -28,7 +25,6 @@ function ProjectForm({
   const router = useRouter()
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [loading, setLoading] = useState(false)
-  const {user} = usersGlobalStore() as IUsersGlobalStore
 
   const formSchema = z.object({
     name: z
