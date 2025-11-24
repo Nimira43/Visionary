@@ -9,3 +9,16 @@ export interface IUser {
   title: string
   created_at: string
 }
+
+export interface IProject {
+  id: string
+  user_id: string
+  name: string
+  description: string
+  demo_link: string
+  repo_link: string
+  image: string
+  tech_stack: string 
+  created_at: string
+  updated_at: string
+}
