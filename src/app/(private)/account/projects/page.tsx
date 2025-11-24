@@ -14,6 +14,12 @@ async function ProjectsPage() {
 
   const projectsResponse = await getProjectsByUserId(userResponse?.data?.id!)
 
+  if (!projectsResponse.success) {
+    return (
+      <div>Failed to load projects.</div>
+    )
+  }
+
   return (
     <div className='flex justify-center items-start min-h-screen p-4'>
       <div className='w-full max-w-2xl'>
