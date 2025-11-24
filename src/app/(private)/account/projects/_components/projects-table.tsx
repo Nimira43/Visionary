@@ -37,11 +37,13 @@ function ProjectsTable({ projects }: {
               <TableCell>{project.created_at}</TableCell>
               <TableCell>
                 <div className='flex gap-5'>
-                  <Button>
-
+                  <Button variant='outline' size={'icon'}>
+                    <PiTrash size={12} />
+                  </Button>
+                  <Button variant='outline' size={'icon'}>
+                    <AiOutlineEdit size={12} />
                   </Button>
                 </div>
-
               </TableCell>
             </TableRow>
           ))}
