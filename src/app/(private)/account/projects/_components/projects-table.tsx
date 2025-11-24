@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { PiTrash } from 'react-icons/pi'
 import { AiOutlineEdit } from 'react-icons/ai'
+import dayjs from 'dayjs'
 
 function ProjectsTable({ projects }: {
   projects: IProject[]
@@ -34,7 +35,9 @@ function ProjectsTable({ projects }: {
               <TableCell>{project.name}</TableCell>
               <TableCell>{project.demo_link}</TableCell>
               <TableCell>{project.repo_link}</TableCell>
-              <TableCell>{project.created_at}</TableCell>
+              <TableCell>
+                {dayjs(project.created_at).format('DD MMM, YYYY')}
+              </TableCell>
               <TableCell>
                 <div className='flex gap-5'>
                   <Button variant='outline' size={'icon'}>
