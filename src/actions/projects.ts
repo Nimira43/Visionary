@@ -45,3 +45,5 @@ export const editProjectById = async (id:string, payload:any) => {
     }
   }
 }
+
+export const getProjectsByUserId = async () => {}
