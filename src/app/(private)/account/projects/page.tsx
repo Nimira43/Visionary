@@ -28,8 +28,10 @@ async function ProjectsPage() {
       <div className='w-full max-w-5xl'>
         <div className='flex justify-between items-center'>
           <h1 className='text-2xl text-main-dark font-medium mb-4 uppercase text-center'>Projects</h1>
-          <Button className='uppercase'>
-            <Link href='/account/projects/add'>
+          <Button className='main-button'>
+            <Link 
+              className='font-medium'
+              href='/account/projects/add'>
               Add Project
             </Link>
           </Button>

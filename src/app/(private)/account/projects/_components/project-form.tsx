@@ -223,7 +223,7 @@ function ProjectForm({
               <Button 
                 disabled={loading}
                 type='submit'
-                className='w-full uppercase '
+                className='w-full main-button'
               >
                 Submit
               </Button>

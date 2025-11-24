@@ -41,7 +41,7 @@ function HomePage() {
           ))}
           <Button 
             onClick={() => setOpenSheet(true)}
-            className='uppercase'
+            className='main-button'
           >
             Login
           </Button>

@@ -25,7 +25,7 @@ function SignOutButton() {
   return (
     <div>
       <Button
-        className='uppercase w-full'
+        className='main-button w-full'
         disabled={loading}
         onClick={onSignOut}
       >

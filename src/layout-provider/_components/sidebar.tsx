@@ -1,5 +1,5 @@
 import SignOutButton from '@/components/functional/sign-out-button'
-import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet'
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from '@/components/ui/sheet'
 import { usePathname, useRouter } from 'next/navigation'
 import { RiHome9Line, RiUser6Line, RiSchoolLine, RiListUnordered, RiAwardLine, RiBookShelfLine } from "react-icons/ri"
 
@@ -53,7 +53,8 @@ function PrivateLayoutSidebar({
     >
       <SheetContent className='min-w-[300px] flex justify-center items-center bg-light'>
         <SheetHeader>
-          <SheetTitle></SheetTitle>
+          <SheetTitle className='sr-only'>Menu</SheetTitle>
+          <SheetDescription className='sr-only'>Sidebar menu</SheetDescription>
         </SheetHeader>
         <div className='flex flex-col gap-5'>
           {menuItems.map((item) => (

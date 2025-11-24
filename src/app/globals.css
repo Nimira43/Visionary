@@ -16,6 +16,10 @@
   transition: all 0.5s ease-in-out;
 }
 
+.main-button {
+  @apply uppercase font-medium bg-main-dark hover:bg-main-dark/90 hover-transition;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
