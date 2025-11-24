@@ -1,7 +1,10 @@
 'use client'
 
 import { IProject } from '@/app/interfaces'
-import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import { Button } from '@/components/ui/button'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import { PiTrash } from 'react-icons/pi'
+import { AiOutlineEdit } from 'react-icons/ai'
 
 function ProjectsTable({ projects }: {
   projects: IProject[]
@@ -10,22 +13,38 @@ function ProjectsTable({ projects }: {
 
   return (
     <div className='mt-7'>
-      <Table className='border-grey-light'>
+      <Table className='border border-grey-light'>
         <TableHeader className='bg-grey-light-extra'>
           <TableRow>
-            <TableHead></TableHead>
-            <TableHead></TableHead>
-            <TableHead></TableHead>
-            <TableHead></TableHead>
+            {columns.map((column, index) => (
+              <TableHead 
+                key={index}
+                className='font-medium'
+              >
+                {column}
+              </TableHead>
+            ))}
           </TableRow>
         </TableHeader>
         <TableBody>
-          <TableRow>
-            <TableCell></TableCell>
-            <TableCell></TableCell>
-            <TableCell></TableCell>
-            <TableCell></TableCell>
-          </TableRow>
+          {projects.map((project) => (
+            <TableRow
+              key={project.id}
+            >
+              <TableCell>{project.name}</TableCell>
+              <TableCell>{project.demo_link}</TableCell>
+              <TableCell>{project.repo_link}</TableCell>
+              <TableCell>{project.created_at}</TableCell>
+              <TableCell>
+                <div className='flex gap-5'>
+                  <Button>
+
+                  </Button>
+                </div>
+
+              </TableCell>
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
     </div>
