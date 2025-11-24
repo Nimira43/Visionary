@@ -48,7 +48,10 @@ export const editProjectById = async (id:string, payload:any) => {
 
 export const getProjectsByUserId = async (userId: string) => {
   try {
-    
+    const { data, error } = await supabase
+      .from('projects')
+      .select('*')
+      .eq('user_id', userId)
   } catch (error) {
     
   }
