@@ -59,7 +59,10 @@ export const getProjectsByUserId = async (userId: string) => {
       success: true,
       data,
     }
-  } catch (error) {
-    
+  } catch (error: any) {
+    return {
+      success: false,
+      message: error.message,
+    }
   }
 }
