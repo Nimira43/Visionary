@@ -2,6 +2,7 @@ import { getProjectsByUserId } from '@/actions/projects'
 import { getCurrentUser } from '@/actions/users'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
+import ProjectsTable from './_components/projects-table'
 
 async function ProjectsPage() {
   const userResponse : any = await getCurrentUser()
@@ -20,7 +21,7 @@ async function ProjectsPage() {
     )
   }
 
-  const projects = projectsResponse.data
+  const projects: any = projectsResponse.data
 
   return (
     <div className='flex justify-center items-start min-h-screen p-4'>
@@ -33,7 +34,7 @@ async function ProjectsPage() {
             </Link>
           </Button>
         </div>
-        
+        <ProjectsTable projects={projects} />  
       </div>
     </div>
   )
