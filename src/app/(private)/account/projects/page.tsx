@@ -5,6 +5,12 @@ import Link from 'next/link'
 async function ProjectsPage() {
   const userResponse = await getCurrentUser()
 
+  if (!userResponse.success) {
+    return (
+      <div>Failed to load user data.</div>
+    )
+  }
+
   return (
     <div className='flex justify-center items-start min-h-screen p-4'>
       <div className='w-full max-w-2xl'>
