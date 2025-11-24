@@ -1,8 +1,10 @@
+import { getCurrentUser } from '@/actions/users'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import React from 'react'
 
-const ProjectsPage = () => {
+async function ProjectsPage() {
+  const userResponse = await getCurrentUser()
+
   return (
     <div className='flex justify-center items-start min-h-screen p-4'>
       <div className='w-full max-w-2xl'>
