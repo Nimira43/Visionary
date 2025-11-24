@@ -1,9 +1,10 @@
+import { getProjectsByUserId } from '@/actions/projects'
 import { getCurrentUser } from '@/actions/users'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 
 async function ProjectsPage() {
-  const userResponse = await getCurrentUser()
+  const userResponse : any = await getCurrentUser()
 
   if (!userResponse.success) {
     return (
@@ -11,7 +12,7 @@ async function ProjectsPage() {
     )
   }
 
-  // const projectsResponse
+  const projectsResponse = await getProjectsByUserId(userResponse?.data?.id!)
 
   return (
     <div className='flex justify-center items-start min-h-screen p-4'>
