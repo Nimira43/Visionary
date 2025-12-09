@@ -6,6 +6,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { PiTrash } from 'react-icons/pi'
 import { AiOutlineEdit } from 'react-icons/ai'
 import dayjs from 'dayjs'
+import { useRouter } from 'next/navigation'
 
 function ProjectsTable({ projects }: {
   projects: IProject[]
