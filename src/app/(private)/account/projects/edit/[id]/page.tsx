@@ -1,5 +1,6 @@
 import React from 'react'
 import ProjectForm from '../../_components/project-form'
+import { getProjectById } from '@/actions/projects'
 
 interface IEditProjectPageProps {
   params : {
@@ -9,7 +10,8 @@ interface IEditProjectPageProps {
 
 async function EditProjectPage({ params } : IEditProjectPageProps) {
 
-  const {id} = params 
+  const { id } = await params 
+  const projectResponse = await getProjectById(id)
 
   return (
     <div className='flex justify-center items-start min-h-screen p-4'>
