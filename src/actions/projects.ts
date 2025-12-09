@@ -66,3 +66,5 @@ export const getProjectsByUserId = async (userId: string) => {
     }
   }
 }
+
+export const getProjectById = async (id: string) => {}
