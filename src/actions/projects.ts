@@ -67,4 +67,10 @@ export const getProjectsByUserId = async (userId: string) => {
   }
 }
 
-export const getProjectById = async (id: string) => {}
+export const getProjectById = async (id: string) => {
+  try {
+    
+  } catch (error) {
+    
+  }
+}
