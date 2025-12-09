@@ -74,6 +74,9 @@ export const getProjectById = async (id: string) => {
       .select('*')
       .eq('id', id)
       .single()
+    
+    if (error) throw new Error(error.message)
+    
   } catch (error) {
     
   }
