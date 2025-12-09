@@ -77,6 +77,10 @@ export const getProjectById = async (id: string) => {
     
     if (error) throw new Error(error.message)
     
+    return {
+      success: true,
+      data,
+    }
   } catch (error) {
     
   }
