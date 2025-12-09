@@ -11,6 +11,7 @@ import { useRouter } from 'next/navigation'
 function ProjectsTable({ projects }: {
   projects: IProject[]
 }) {
+  const router = useRouter()
   const columns = ['Name', 'Demo Link', 'Repo Link', 'Created At', 'Actions']
 
   return (
@@ -41,10 +42,19 @@ function ProjectsTable({ projects }: {
               </TableCell>
               <TableCell>
                 <div className='flex gap-5'>
-                  <Button variant='outline' size={'icon'}>
+                  <Button
+                    variant='outline'
+                    size={'icon'}
+                  >
                     <PiTrash size={12} />
                   </Button>
-                  <Button variant='outline' size={'icon'}>
+                  <Button
+                    variant='outline'
+                    size={'icon'}
+                    onClick={() => router.push(
+                      `/account/projects/edit/${project.id}`
+                    )}
+                  >
                     <AiOutlineEdit size={12} />
                   </Button>
                 </div>
