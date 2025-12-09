@@ -69,7 +69,11 @@ export const getProjectsByUserId = async (userId: string) => {
 
 export const getProjectById = async (id: string) => {
   try {
-    
+    const { data, error } = await supabase
+      .from('projects')
+      .select('*')
+      .eq('id', id)
+      .single()
   } catch (error) {
     
   }
