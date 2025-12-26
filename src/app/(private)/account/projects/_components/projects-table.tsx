@@ -38,7 +38,6 @@ function ProjectsTable({ projects }: {
     }
   }
 
-
   return (
     <div className='mt-7'>
       <Table className='border border-grey-light'>
@@ -70,6 +69,9 @@ function ProjectsTable({ projects }: {
                   <Button
                     variant='outline'
                     size={'icon'}
+                    onClick={() => 
+                      deleteProjectHandler(project.id)
+                    }
                   >
                     <PiTrash size={12} />
                   </Button>
