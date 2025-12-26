@@ -17,6 +17,11 @@ function ProjectsTable({ projects }: {
   const router = useRouter()
   const columns = ['Name', 'Demo Link', 'Repo Link', 'Created At', 'Actions']
 
+  const deleteProjectHandler = async () => {
+    
+  }
+
+
   return (
     <div className='mt-7'>
       <Table className='border border-grey-light'>
