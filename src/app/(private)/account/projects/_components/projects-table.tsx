@@ -7,10 +7,12 @@ import { PiTrash } from 'react-icons/pi'
 import { AiOutlineEdit } from 'react-icons/ai'
 import dayjs from 'dayjs'
 import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 
 function ProjectsTable({ projects }: {
   projects: IProject[]
 }) {
+  const [loading, setLoading] = useState(false)
   const router = useRouter()
   const columns = ['Name', 'Demo Link', 'Repo Link', 'Created At', 'Actions']
 
