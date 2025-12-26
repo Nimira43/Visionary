@@ -95,6 +95,8 @@ export const deleteProjectById = async (id: string) => {
       .from('projects')
       .delete()
       .match({ id })
+    
+    if (error) throw new Error(error.message)
   } catch (error: any) {
     return {
       success: false,
