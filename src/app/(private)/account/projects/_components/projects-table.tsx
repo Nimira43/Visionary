@@ -29,6 +29,7 @@ function ProjectsTable({ projects }: {
         throw new Error(response.message)
       }
 
+      toast.success(response.message)
     } catch (error: any) {
       toast.error(error.message)
     } finally {
