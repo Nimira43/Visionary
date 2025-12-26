@@ -88,3 +88,5 @@ export const getProjectById = async (id: string) => {
     }  
   }
 }
+
+export const deleteProjectById = () => {}
