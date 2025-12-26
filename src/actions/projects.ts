@@ -92,7 +92,10 @@ export const getProjectById = async (id: string) => {
 export const deleteProjectById = async (id: string) => {
   try {
     
-  } catch (error) {
-    
+  } catch (error: any) {
+    return {
+      success: false,
+      message: error.message
+    }    
   }
 }
