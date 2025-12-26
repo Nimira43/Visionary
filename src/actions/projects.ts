@@ -53,6 +53,7 @@ export const getProjectsByUserId = async (userId: string) => {
       .from('projects')
       .select('*')
       .eq('user_id', userId)
+      .order('created_at', { ascending: false })
 
     if (error) throw new Error(error.message)
 
