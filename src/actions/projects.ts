@@ -1,6 +1,7 @@
 'use server'
 
 import supabase from '@/config/supabase-db-config'
+import { revalidatePath } from 'next/cache'
 
 export const addNewProject = async (payload: any) => {
   try {
@@ -97,6 +98,7 @@ export const deleteProjectById = async (id: string) => {
       .match({ id })
     
     if (error) throw new Error(error.message)
+    revalidatePath('/account/projects')
     
     return {
       success: true,
