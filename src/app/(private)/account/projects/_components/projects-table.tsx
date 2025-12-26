@@ -21,8 +21,10 @@ function ProjectsTable({ projects }: {
   const deleteProjectHandler = async () => {
     try {
       setLoading(true)
-    } catch (error) {
+    } catch (error: any) {
       toast.error(error.message)
+    } finally {
+      setLoading(false)
     }
   }
 
