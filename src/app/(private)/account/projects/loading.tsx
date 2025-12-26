@@ -2,7 +2,7 @@ import Spinner from '@/components/ui/spinner'
 
 function Loading() {
   return ( 
-    <div>
+    <div className='h-40 flex justify-center items-center'>
       <Spinner />
     </div>
   )
