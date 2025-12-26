@@ -13,6 +13,7 @@ function ProjectsTable({ projects }: {
   projects: IProject[]
 }) {
   const [loading, setLoading] = useState(false)
+  const [selectedProjectIdToDelete, setSelectedProjectIdToDelete] = useState<string | null>(null)
   const router = useRouter()
   const columns = ['Name', 'Demo Link', 'Repo Link', 'Created At', 'Actions']
 
