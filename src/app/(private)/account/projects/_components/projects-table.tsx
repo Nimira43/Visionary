@@ -9,6 +9,7 @@ import dayjs from 'dayjs'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import toast from 'react-hot-toast'
+import { deleteProjectById } from '@/actions/projects'
 
 function ProjectsTable({ projects }: {
   projects: IProject[]
@@ -18,9 +19,10 @@ function ProjectsTable({ projects }: {
   const router = useRouter()
   const columns = ['Name', 'Demo Link', 'Repo Link', 'Created At', 'Actions']
 
-  const deleteProjectHandler = async () => {
+  const deleteProjectHandler = async (id: string) => {
     try {
       setLoading(true)
+      const response = await deleteProjectById(id)
     } catch (error: any) {
       toast.error(error.message)
     } finally {
