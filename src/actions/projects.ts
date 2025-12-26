@@ -89,4 +89,10 @@ export const getProjectById = async (id: string) => {
   }
 }
 
-export const deleteProjectById = () => {}
+export const deleteProjectById = async (id: string) => {
+  try {
+    
+  } catch (error) {
+    
+  }
+}
