@@ -8,6 +8,7 @@ import { AiOutlineEdit } from 'react-icons/ai'
 import dayjs from 'dayjs'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
+import toast from 'react-hot-toast'
 
 function ProjectsTable({ projects }: {
   projects: IProject[]
@@ -18,7 +19,11 @@ function ProjectsTable({ projects }: {
   const columns = ['Name', 'Demo Link', 'Repo Link', 'Created At', 'Actions']
 
   const deleteProjectHandler = async () => {
-    
+    try {
+      setLoading(true)
+    } catch (error) {
+      toast.error(error.message)
+    }
   }
 
 
