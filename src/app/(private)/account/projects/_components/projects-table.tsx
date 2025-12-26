@@ -27,6 +27,7 @@ function ProjectsTable({ projects }: {
     } catch (error: any) {
       toast.error(error.message)
     } finally {
+      setSelectedProjectIdToDelete(null)
       setLoading(false)
     }
   }
