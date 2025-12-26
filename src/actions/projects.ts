@@ -97,6 +97,11 @@ export const deleteProjectById = async (id: string) => {
       .match({ id })
     
     if (error) throw new Error(error.message)
+    
+    return {
+      success: true,
+      message: 'Project deleted successfully.',
+    }
   } catch (error: any) {
     return {
       success: false,
