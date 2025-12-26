@@ -72,6 +72,9 @@ function ProjectsTable({ projects }: {
                     onClick={() => 
                       deleteProjectHandler(project.id)
                     }
+                    disabled={
+                      loading && selectedProjectIdToDelete === project.id
+                    }
                   >
                     <PiTrash size={12} />
                   </Button>
