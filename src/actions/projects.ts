@@ -91,7 +91,10 @@ export const getProjectById = async (id: string) => {
 
 export const deleteProjectById = async (id: string) => {
   try {
-    
+    const { error } = await supabase
+      .from('projects')
+      .delete()
+      .match({ id })
   } catch (error: any) {
     return {
       success: false,
