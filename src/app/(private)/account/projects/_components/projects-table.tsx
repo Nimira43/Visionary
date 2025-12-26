@@ -24,6 +24,11 @@ function ProjectsTable({ projects }: {
       setLoading(true)
       setSelectedProjectIdToDelete(id)
       const response = await deleteProjectById(id)
+
+      if (!response.success) {
+        throw new Error(response.message)
+      }
+
     } catch (error: any) {
       toast.error(error.message)
     } finally {
