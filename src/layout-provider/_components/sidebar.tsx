@@ -40,8 +40,8 @@ function PrivateLayoutSidebar({
       icon: <RiAwardLine size={14} />
     },
     {
-      title: 'Experience',
-      path: '/account/experience',
+      title: 'Experiences',
+      path: '/account/experiences',
       icon: <RiBookShelfLine size={14} />
     },
   ]
