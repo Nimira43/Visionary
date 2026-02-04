@@ -22,3 +22,16 @@ export interface IProject {
   created_at: string
   updated_at: string
 }
+
+export interface IExperiences {
+  id: string
+  user_id: string
+  company: string
+  role: string
+  start_date: string
+  end_date: string
+  description: string
+  location: string 
+  created_at: string
+  updated_at: string
+}
