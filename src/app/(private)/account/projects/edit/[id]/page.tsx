@@ -1,4 +1,3 @@
-import React from 'react'
 import ProjectForm from '../../_components/project-form'
 import { getProjectById } from '@/actions/projects'
 
