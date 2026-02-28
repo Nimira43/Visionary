@@ -24,14 +24,14 @@ async function ProjectsPage() {
   const projects: any = projectsResponse.data
 
   return (
-    <div className='flex justify-center items-start min-h-screen p-4'>
+    <div className='min-h-screen flex flex-col items-center p-4'>
       <div className='w-full max-w-5xl'>
-        <div className='flex justify-between items-center'>
-          <h1 className='text-2xl text-main-dark font-medium mb-4 uppercase text-center'>Projects</h1>
-          <Button className='main-button'>
-            <Link 
-              className='font-medium'
-              href='/account/projects/add'>
+        <div className='flex justify-between items-center mb-6'>
+          <h1 className='text-2xl text-main-dark font-medium uppercase'>
+            Projects
+          </h1>
+          <Button asChild className='main-button'>
+            <Link href='/account/projects/add' className='font-medium'>
               Add Project
             </Link>
           </Button>
