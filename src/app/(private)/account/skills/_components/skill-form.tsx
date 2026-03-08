@@ -1,6 +1,6 @@
-'use client'
+'use-client'
 
-import {zodResolver} from '@hookform/resolvers/zod'
+import { zodResolver } from '@hookform/resolvers/zod'
 import {useForm} from 'react-hook-form'
 import { z } from 'zod'
 import { Button } from '@/components/ui/button'
@@ -9,20 +9,26 @@ import { Input } from '@/components/ui/input'
 import { useMemo, useState } from 'react'
 import toast from 'react-hot-toast'
 import { uploadFileAndGetUrl } from '@/helpers/uploads'
-import { Textarea } from '@/components/ui/textarea'
 import { useRouter } from 'next/navigation'
-import { addNewProject, editProjectById } from '@/actions/projects'
 import usersGlobalStore, { IUsersGlobalStore } from '@/global-store/users-store'
+import { addNewSkill, editSkillById } from '@/actions/skills'
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 
-interface IProjectFormProps {
-  formType ? : 'add' | 'edit'
-  initialValues ? : any
+interface SkillFormProps {
+  formType: 'add' | 'edit'
+  initialValues?: any
+  openSkillForm: boolean
+  setOpenSkillForm: (open: boolean) => void
+  reloadData: () => void
 }
 
-function ProjectForm({
-  formType='add', 
-  initialValues={}
-}: IProjectFormProps) {
+function SkillForm({
+  formType,
+  initialValues,
+  openSkillForm,
+  setOpenSkillForm,
+  reloadData
+}: SkillFormProps) {
   const router = useRouter()
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [loading, setLoading] = useState(false)
@@ -34,18 +40,8 @@ function ProjectForm({
       .nonempty()
       .min(3)
       .max(50),
-    description: z
-      .string()
-      .nonempty(),
-    demo_link: z
-      .string()
-      .nonempty(),
-    repo_link: z
-      .string()
-      .nonempty(),
-    tech_stack: z
-      .string()
-      .nonempty(),
+    level: z
+      .number(),
     image: z
       .string(),
   })
@@ -54,10 +50,7 @@ function ProjectForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: initialValues?.name || '',
-      description: initialValues?.description || '',
-      demo_link: initialValues?.demo_link || '',
-      repo_link: initialValues?.repo_link || '',
-      tech_stack: initialValues?.tech_stack || '',
+      level: initialValues?.level || 0,
       image: initialValues?.image || '',
     }
   })
@@ -75,14 +68,14 @@ function ProjectForm({
       let response: any = null
 
       if (formType === 'add') {
-        response = await addNewProject(payload)
+        response = await addNewSkill(payload)
       } else {
-        response = await editProjectById(initialValues.id, payload)
+        response = await editSkillById(initialValues.id, payload)
       }
 
       if (response.success) {
         toast.success(response.message)
-        router.push('/account/projects')
+        router.push('/account/skills')
       } else {
         toast.error(response.error)
       }
@@ -94,7 +87,7 @@ function ProjectForm({
     }
   }
 
-  const projectImagePreview = useMemo(() => {
+  const skillImagePreview = useMemo(() => {
     if (selectedFile) {
       return URL.createObjectURL(selectedFile)
     }
@@ -103,8 +96,15 @@ function ProjectForm({
   }, [selectedFile])
 
   return (
-    <div className='flex justify-center items-start min-h-screen p-4'>
-      <div className='w-full max-w-2xl'>
+    <Dialog
+      open={openSkillForm}
+      onOpenChange={setOpenSkillForm}
+    >
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Add Skill</DialogTitle>
+        </DialogHeader>
+        
         <Form {...form}>
           <form 
             onSubmit={form.handleSubmit(onSubmit)}
@@ -125,23 +125,10 @@ function ProjectForm({
             />
             <FormField
               control={form.control}
-              name='description'
+              name='level'
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Description</FormLabel>
-                  <FormControl>
-                    <Textarea {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='tech_stack'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Tech Stack</FormLabel>
+                  <FormLabel>Level</FormLabel>
                   <FormControl>
                     <Input {...field} />
                   </FormControl>
@@ -149,42 +136,12 @@ function ProjectForm({
                 </FormItem>
               )}
             />
-
-            <div className='grid grid-cols-2 gap-5'>
-              <FormField
-                control={form.control}
-                name='demo_link'
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Demo Link</FormLabel>
-                    <FormControl>
-                      <Input {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name='repo_link'
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Repo Link</FormLabel>
-                    <FormControl>
-                      <Input {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-            
             <FormField
               control={form.control}
               name='image'
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Upload Project Image</FormLabel>
+                  <FormLabel>Upload Skill Image</FormLabel>
                   <FormControl>
                     <Input 
                       type='file'
@@ -200,11 +157,11 @@ function ProjectForm({
                 </FormItem>
               )}
             />
-            {projectImagePreview && (
+            {skillImagePreview && (
               <div className='p-2 '>
                 <img 
-                  src={projectImagePreview}
-                  alt='Project Image'
+                  src={skillImagePreview}
+                  alt='Skill Image'
                   className='w-32 h-32 m-max'
                 />
               </div>
@@ -229,9 +186,10 @@ function ProjectForm({
             </div>
           </form>
         </Form>
-      </div>
-    </div>
+      
+      </DialogContent>
+    </Dialog>
   )
 }
 
-export default ProjectForm
+export default SkillForm
