@@ -12,7 +12,7 @@ import { uploadFileAndGetUrl } from '@/helpers/uploads'
 import { useRouter } from 'next/navigation'
 import usersGlobalStore, { IUsersGlobalStore } from '@/global-store/users-store'
 import { addNewSkill, editSkillById } from '@/actions/skills'
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 
 interface SkillFormProps {
   formType: 'add' | 'edit'
@@ -40,8 +40,7 @@ function SkillForm({
       .nonempty()
       .min(3)
       .max(50),
-    level: z
-      .number(),
+    level: z.coerce.number(),
     image: z
       .string(),
   })
@@ -75,11 +74,11 @@ function SkillForm({
 
       if (response.success) {
         toast.success(response.message)
-        router.push('/account/skills')
+        reloadData()
+        setOpenSkillForm(false)
       } else {
-        toast.error(response.error)
+        toast.error(response.message)
       }
-
     } catch (error: any) {
       toast.error(error.message)
     } finally {
@@ -102,7 +101,14 @@ function SkillForm({
     >
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Add Skill</DialogTitle>
+          <DialogTitle>
+            {formType == 'add' 
+              ? 'Add New Skill'
+              : 'Edit Skill'
+            }
+          </DialogTitle>
+          <DialogDescription>
+          </DialogDescription>
         </DialogHeader>
         
         <Form {...form}>
@@ -130,7 +136,10 @@ function SkillForm({
                 <FormItem>
                   <FormLabel>Level</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input 
+                      type='number'
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -150,7 +159,6 @@ function SkillForm({
                           setSelectedFile(e.target.files![0])
                         }
                       }
-                      className='w-max'
                     />
                   </FormControl>
                   <FormMessage />
