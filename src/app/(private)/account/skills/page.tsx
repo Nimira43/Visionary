@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 import { useEffect, useState } from 'react'
 import SkillForm from './_components/skill-form'
 import toast from 'react-hot-toast'
-import { getSkillsByUserId } from '@/actions/skills'
+import { deleteSkillById, getSkillsByUserId } from '@/actions/skills'
 import usersGlobalStore, { IUsersGlobalStore } from '@/global-store/users-store'
 import Spinner from '@/components/ui/spinner'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
@@ -14,6 +14,7 @@ import { ISkill } from '@/app/interfaces'
 
 function SkillsPage() {
   const [openSkillForm, setOpenSkillForm] = useState(false)
+  const [selectedSkill, setSelectedSkill] = useState<ISkill | null>(null)
   const [loading, setLoading] = useState(false)
   const [skills, setSkills] = useState([])
   const { user } = usersGlobalStore() as IUsersGlobalStore
@@ -33,7 +34,21 @@ function SkillsPage() {
     }
   }
 
-  const deleteSkillHandler = async (id: string) => {}
+  const deleteSkillHandler = async (id: string) => {
+    try {
+      setLoading(true)
+      const response = await deleteSkillById(id)
+      if (!response.success) {
+        throw new Error(response.message)        
+      }
+      toast.success(response.message)
+      fetchData()
+    } catch (error: any) {
+      toast.error(error.message)
+    } finally {
+      setLoading(false)
+    }
+  }
 
   useEffect(() => {
     fetchData()
@@ -65,7 +80,7 @@ function SkillsPage() {
             <Spinner />
           </div>
         )}
-        {skills.length && (
+        {skills.length && !loading && (
           <Table className='border border-grey-light'>
             <TableHeader className='bg-grey-light-extra'>
               <TableRow>
@@ -114,6 +129,7 @@ function SkillsPage() {
                         variant='outline'
                         size={'icon'}
                         onClick={() => {
+                          setSelectedSkill(skill)
                           setOpenSkillForm(true)
                         }}
                       >
@@ -131,8 +147,9 @@ function SkillsPage() {
           <SkillForm
             openSkillForm={openSkillForm}
             setOpenSkillForm={setOpenSkillForm}
-            reloadData={() => {}}
-            formType='add'
+            reloadData={fetchData}
+            formType={selectedSkill ? 'edit' : 'add'}
+            initialValues={selectedSkill}
           />
         )}
       </div>
