@@ -1,0 +1,113 @@
+'use server'
+
+import supabase from '@/config/supabase-db-config'
+import { revalidatePath } from 'next/cache'
+
+export const addNewEducation = async (payload: any) => {
+  try {
+    const {data, error} = await supabase
+      .from('education')
+      .insert(payload)    
+      
+    if (error) throw new Error(error.message)
+
+    return {
+      success:  true,
+      data,
+      message: 'Education added successfully'
+    }
+  } catch (error: any) {
+    return {
+      success: false,
+      message: error.message
+    }
+  }
+}
+
+export const editEducationById = async (id:string, payload:any) => {
+  try {
+    const {data, error} = await supabase
+      .from('education')
+      .update(payload)
+      .match({ id })
+
+    if (error) throw new Error(error.message)
+
+    return {
+      success:  true,
+      data,
+      message: 'Education updated successfully'
+    }
+  } catch (error: any) {
+    return {
+      success: false,
+      message: error.message
+    }
+  }
+}
+
+export const getEducationByUserId = async (userId: string) => {
+  try {
+    const { data, error } = await supabase
+      .from('education')
+      .select('*')
+      .eq('user_id', userId)
+      .order('created_at', { ascending: false })
+
+    if (error) throw new Error(error.message)
+
+    return {
+      success: true,
+      data,
+    }
+  } catch (error: any) {
+    return {
+      success: false,
+      message: error.message,
+    }
+  }
+}
+
+export const getEducationById = async (id: string) => {
+  try {
+    const { data, error } = await supabase
+      .from('education')
+      .select('*')
+      .eq('id', id)
+      .single()
+    
+    if (error) throw new Error(error.message)
+    
+    return {
+      success: true,
+      data,
+    }
+  } catch (error: any) {
+    return {
+      success: false,
+      mesage: error.message
+    }  
+  }
+}
+
+export const deleteEducationById = async (id: string) => {
+  try {
+    const { error } = await supabase
+      .from('education')
+      .delete()
+      .match({ id })
+    
+    if (error) throw new Error(error.message)
+    revalidatePath('/account/education')
+    
+    return {
+      success: true,
+      message: 'Education deleted successfully.',
+    }
+  } catch (error: any) {
+    return {
+      success: false,
+      message: error.message
+    }    
+  }
+}
