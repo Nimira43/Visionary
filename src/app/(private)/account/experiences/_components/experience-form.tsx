@@ -54,12 +54,12 @@ function ExperienceForm({
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      company: initialValues?.name || '',
-      role: initialValues?.description || '',
-      start_date: initialValues?.demo_link || '',
-      end_date: initialValues?.repo_link || '',
-      description: initialValues?.tech_stack || '',
-      location: initialValues?.image || '',
+      company: initialValues?.company || '',
+      role: initialValues?.institution || '',
+      start_date: initialValues?.start_date || '',
+      end_date: initialValues?.end_date || '',
+      description: initialValues?.description || '',
+      location: initialValues?.location || '',
     }
   })
 
