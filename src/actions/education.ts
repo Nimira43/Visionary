@@ -85,7 +85,7 @@ export const getEducationById = async (id: string) => {
   } catch (error: any) {
     return {
       success: false,
-      mesage: error.message
+      message: error.message
     }  
   }
 }

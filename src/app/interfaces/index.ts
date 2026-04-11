@@ -36,6 +36,19 @@ export interface IExperiences {
   updated_at: string
 }
 
+export interface IEducation {
+  id: string
+  user_id: string
+  degree: string
+  institution: string
+  location: string
+  start_date: string
+  end_date: string
+  percentage: string 
+  created_at: string
+  updated_at: string
+}
+
 export interface ISkill {
   id: string
   user_id: string

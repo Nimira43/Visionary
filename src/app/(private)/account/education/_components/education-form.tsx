@@ -11,7 +11,7 @@ import toast from 'react-hot-toast'
 import { useRouter } from 'next/navigation'
 import usersGlobalStore, { IUsersGlobalStore } from '@/global-store/users-store'
 import { addNewEducation, editEducationById } from '@/actions/education'
-import { Textarea } from '@/components/ui/textarea'
+
 
 interface EducationFormProps {
   formType ? : 'add' | 'edit'
@@ -80,7 +80,7 @@ function EducationForm({
         toast.success(response.message)
         router.push('/account/education')
       } else {
-        toast.error(response.error)
+        toast.error(response.message)
       }
 
     } catch (error: any) {
