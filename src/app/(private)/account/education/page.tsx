@@ -34,7 +34,7 @@ async function EducationPage() {
             <Link 
               className='font-medium'
               href='/account/education/add'>
-              Add Experience
+              Add Education
             </Link>
           </Button>
         </div>
