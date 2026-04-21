@@ -1,7 +1,7 @@
 import SignOutButton from '@/components/functional/sign-out-button'
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from '@/components/ui/sheet'
 import { usePathname, useRouter } from 'next/navigation'
-import { RiHome9Line, RiUser6Line, RiSchoolLine, RiListUnordered, RiAwardLine, RiBookShelfLine } from "react-icons/ri"
+import { RiHome9Line, RiUser6Line, RiSchoolLine, RiListUnordered, RiAwardLine, RiBookShelfLine, RiSettings4Line, RiQuestionLine } from "react-icons/ri"
 
 function PrivateLayoutSidebar({ 
   onClose,
@@ -44,6 +44,16 @@ function PrivateLayoutSidebar({
       path: '/account/experiences',
       icon: <RiBookShelfLine size={14} />
     },
+    {
+      title: 'Configurations',
+      path: '/account/configurations',
+      icon: <RiSettings4Line size={14} />
+    },
+    {
+      title: 'Queries',
+      path: '/account/queries',
+      icon: <RiQuestionLine size={14} />
+    },
   ]
   
   return (
@@ -61,7 +71,7 @@ function PrivateLayoutSidebar({
             <div
               key={item.title}
               className={
-                `flex gap-4 p-3 items-center font-medium hover:text-main-dark hover-transition cursor-pointer ${
+                `flex gap-4 p-2 items-center font-medium hover:text-main-dark hover-transition cursor-pointer ${
                   pathname === item.path
                     ? 'bg-main-light rounded'
                     : ''
