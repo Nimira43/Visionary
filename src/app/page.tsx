@@ -94,7 +94,7 @@ export default function HomePage() {
           <h1 className='text-4xl md:text-5xl text-main-dark logo leading-tight'>
             Visionary Solutions
           </h1>
-          <p className='text-grey-dark mt-4 text-base md:text-lg max-w-md'>
+          <p className='text-grey-1 mt-4 text-base md:text-lg max-w-md'>
             Unlock your potential with our cutting-edge portfolio builder.
             Showcase your skills, achievements, and projects in a visually
             stunning and professional manner. Take control of your career and

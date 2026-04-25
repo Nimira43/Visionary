@@ -17,7 +17,7 @@
 }
 
 .main-button {
-  @apply uppercase font-medium bg-main-dark hover:bg-main-dark/90 hover-transition;
+  @apply uppercase font-medium bg-main-dark hover:bg-dark hover-transition;
 }
 
 @layer base {

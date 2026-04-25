@@ -40,8 +40,8 @@ function ProjectsTable({ projects }: {
 
   return (
     <div className='mt-7'>
-      <Table className='border border-grey-light'>
-        <TableHeader className='bg-grey-light-extra'>
+      <Table className='border border-grey-3'>
+        <TableHeader className='bg-grey-4'>
           <TableRow>
             {columns.map((column, index) => (
               <TableHead 
