@@ -30,7 +30,9 @@ function ConfigurationsPage() {
     }
   })
 
-  const onSubmit = async (data: any) => {}
+  const onSubmit = async (data: any) => {
+    console.log(data)
+  }
 
   return (
     <div className="min-h-screen flex flex-col items-center p-4">
