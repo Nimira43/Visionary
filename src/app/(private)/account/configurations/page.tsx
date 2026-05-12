@@ -5,10 +5,10 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Checkbox } from '@/components/ui/checkbox'
-import { saveConfiguration } from '@/actions/configurations'
+import { getConfiguration, saveConfiguration } from '@/actions/configurations'
 import usersGlobalStore, { IUsersGlobalStore } from '@/global-store/users-store'
 import toast from 'react-hot-toast'
 
@@ -58,6 +58,26 @@ function ConfigurationsPage() {
       setLoading(false)
     } 
   }
+
+  const fetchConfiguration = async () => {
+    try {
+      setLoading(true)
+      const response = await getConfiguration(user?.id!)
+
+      if (response.success) {
+        setInitialValues(response.data)
+        form.reset(response.data)
+      }
+    } catch (error: any) {
+      toast.error(error.message)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    fetchConfiguration()
+  }, [])
 
   return (
     <div className='min-h-screen flex flex-col items-center p-4'>

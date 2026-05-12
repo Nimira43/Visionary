@@ -44,3 +44,31 @@ export const saveConfiguration = async ({
     }
   }  
 }
+
+export const getConfiguration = async (userId: string) => {
+  try {
+    const { data, error } = await supabase
+      .from('configurations')
+      .select('*')
+      .eq('user_id', userId)
+    
+    if (error) throw new Error(error.message)
+
+    if (data.length) {
+      return {
+        success: true,
+        data: data[0]
+      }
+    } else {
+      return {
+        success: false,
+        message: 'Configuration not found',
+      }
+    }
+  } catch (error: any) {
+    return {
+      success: false,
+      message: error.message
+    }
+  }
+}
