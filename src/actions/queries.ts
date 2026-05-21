@@ -7,13 +7,13 @@ export const fetchQueriesOfUser = async (userId: string) => {
     const { data, error } = await supabase
       .from('queries')
       .select('*')
-      .eq('user.id', userId)
+      .eq('user_id', userId)
     
     if (error) throw new Error(error.message)
     
     return {
-      success: false,
-      messages: 'Queries not found.'
+      success: true,
+      data,
     }
   } catch (error: any) {
     return {
