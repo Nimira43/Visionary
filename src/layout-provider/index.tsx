@@ -18,7 +18,7 @@ function LayoutProvider({children} : {
     )
   }
   
-  if (pathname.startsWith('/porfolio')) {
+  if (pathname.startsWith('/portfolio')) {
     return (
       <PortfolioLayout>
         {children}
