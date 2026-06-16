@@ -12,7 +12,7 @@ async function PortfolioHomePage({ params}: PortfolioHomePageParams) {
 
   return (
     <div>
-      Hello
+      Portfolio Home Page
     </div>
   )
 }
