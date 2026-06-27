@@ -7,9 +7,9 @@ import { RiAwardLine, RiDownload2Line, RiMailLine, RiUser6Line } from 'react-ico
 import { IconType } from 'react-icons'
 
 interface PortfolioHomePageProps {
-  params: {
+  params: Promise<{
     id: string
-  }
+  }>
 }
 
 function PortfolioSection({
@@ -53,7 +53,7 @@ function SectionHeading({
 async function PortfolioHomePage({
   params
 }: PortfolioHomePageProps) {
-  const { id } = params
+  const { id } = await params
   const userProfileResponse = await getUserProfileById(id)
 
   if (!userProfileResponse.success) {
