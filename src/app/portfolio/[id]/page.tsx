@@ -88,12 +88,15 @@ async function PortfolioHomePage({
           )}
 
           <div className='flex flex-wrap justify-center md:justify-start gap-3 mt-2'>
-            <Button variant='outline' className='flex items-center gap-2'>
+            <Button
+              variant='outline'
+              className='flex items-center gap-2'
+            >
               <RiMailLine size={18} />
               Contact Me
             </Button>
 
-            <Button className='flex items-center gap-2'>
+            <Button className='flex items-center gap-2 main-button'>
               <RiDownload2Line size={18} />
               Download Resume
             </Button>
