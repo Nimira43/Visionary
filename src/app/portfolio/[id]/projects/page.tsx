@@ -22,8 +22,9 @@ async function ProjectsPage({ params }: ProjectsPageProps) {
   const projects: IProject[] = projectsResponse.data
 
   return (
-    <div>
-      <h1 className='my-7 text-2xl font-medium text-main-dark'>
+    <div className='flex justify-center items-start min-h-screen p-4'>
+      <div className='w-full max-w-2xl'>
+      <h1 className='my-7 text-2xl font-medium text-main-dark text-center'>
         Projects
       </h1>
       <div className='flex flex-col gap-7'>
@@ -73,7 +74,8 @@ async function ProjectsPage({ params }: ProjectsPageProps) {
           </div>
         ))}
       </div>
-    </div>
+      </div>
+      </div>
   )
 }
 

@@ -71,7 +71,7 @@ async function PortfolioHomePage({
 
   return (
     <main className='w-full flex flex-col gap-16 md:gap-24 py-10 md:py-16'>
-      <section className='flex flex-col-reverse md:flex-row items-center gap-10 md:gap-14 max-w-5xl mx-auto w-full'>
+      <section className='flex flex-col-reverse md:flex-row items-center gap-10 md:gap-14 max-w-3xl mx-auto w-full'>
         <div className='flex flex-col items-center text-center md:items-start md:text-left gap-4 flex-1'>
           <span className='text-sm font-medium text-grey-1 tracking-wide'>
             Hello, I&apos;m
