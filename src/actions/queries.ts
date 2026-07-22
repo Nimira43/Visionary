@@ -8,6 +8,9 @@ export const fetchQueriesOfUser = async (userId: string) => {
       .from('queries')
       .select('*')
       .eq('user_id', userId)
+      .order('created_at', {
+        ascending: false
+      })
     
     if (error) throw new Error(error.message)
     
@@ -22,3 +25,22 @@ export const fetchQueriesOfUser = async (userId: string) => {
     }
   }
 } 
+
+export const addNewQuery = async (payload: any) => {
+  try {
+    const { data, error } = await supabase.from('queries').insert([payload])
+
+    if (error) throw new Error(error.message)
+    
+    return {
+      success: true,
+      message: 'Query submitted successfully.'
+    }
+    
+  } catch (error: any) {
+    return {
+      success: false,
+      message: error.message
+    }
+  }
+}

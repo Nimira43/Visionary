@@ -8,7 +8,6 @@ interface ExperiencesPageProps {
   }
 }
 
-
 async function ExperiencesPage({
   params,
 }: ExperiencesPageProps) {

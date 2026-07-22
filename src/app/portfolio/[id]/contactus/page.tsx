@@ -10,6 +10,7 @@ import { useState } from 'react'
 import toast from 'react-hot-toast'
 import { Textarea } from '@/components/ui/textarea'
 import { useParams } from 'next/navigation'
+import { addNewQuery } from '@/actions/queries'
 
 function ContactUsPage() {
   const [loading, setLoading] = useState(false)
@@ -41,6 +42,17 @@ function ContactUsPage() {
   const onSubmit = async (data: any) => {
     try {
       setLoading(true)
+      const response = await addNewQuery({
+        ...data,
+        user_id: params.id
+      })
+
+      if (response.success) {
+        form.reset()
+        toast.success(response.message)
+      } else {
+        toast.error(response.message)
+      }
     } catch (error: any) {
       toast.error(error.message)
     } finally {
